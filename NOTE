@@ -1,6 +1,18 @@
+Install steps:
+=============
+1. zookeeper, kafka, mysql, mongodb
+2. php-zookeeper, php-kafka, php-mongo
+3. symfony new my_project_2_8 2.8
+
+
 Dependencies:
+=============
 
 infrastructures:
+    zookeeper
+        install: brew install zookeeper
+        start server: zkServer start
+
     Kafka
         install: http://kafka.apache.org/
         usage: http://kafka.apache.org/documentation.html#quickstart
@@ -34,7 +46,7 @@ PHP Extensions:
             5. make install
 
     mongodb: http://php.net/manual/zh/mongodb.installation.homebrew.php
-        install: brew install php70-mongodb
+        install: brew install php55-mongodb
         usage: http://php.net/manual/zh/mongodb.tutorial.library.php
 
     kafka-php: https://github.com/nmred/kafka-php
