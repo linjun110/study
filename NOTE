@@ -1,0 +1,41 @@
+Dependencies:
+
+infrastructures:
+    Kafka
+        install: http://kafka.apache.org/
+        usage: http://kafka.apache.org/documentation.html#quickstart
+
+    mysql
+        install: brew install mysql
+        usage:
+            start server: mysql.server start
+            connect to server: mysql -uroot -plinjunAmazon
+
+    mongodb
+        install: brew install mongodb
+        usage:
+            start server: mongod --config /usr/local/etc/mongod.conf
+            connect to server: mongo
+
+    symfony
+        usage: php app/console server:run
+
+
+package management tools:
+1. composer: http://www.phpcomposer.com/
+
+PHP Extensions:
+    zookeeper: https://github.com/andreiz/php-zookeeper
+        install: 
+            1. git clone https://github.com/andreiz/php-zookeeper
+            2. phpize
+            3. ./configure
+            4. make
+            5. make install
+
+    mongodb: http://php.net/manual/zh/mongodb.installation.homebrew.php
+        install: brew install php70-mongodb
+        usage: http://php.net/manual/zh/mongodb.tutorial.library.php
+
+    kafka-php: https://github.com/nmred/kafka-php
+
