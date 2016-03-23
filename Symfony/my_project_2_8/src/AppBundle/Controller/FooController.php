@@ -10,9 +10,18 @@ use Symfony\Component\HttpFoundation\Response;
 class FooController extends Controller
 {
     /**
-     * @Route("/test")
+     * @Route("/index")
      */
     public function indexAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('index.html.twig', array());
+    }
+
+    /**
+     * @Route("/sendMsg")
+     */
+    public function sendMsgAction(Request $request)
     {
         // replace this example code with whatever you need
         $produce = \Kafka\Produce::getInstance('localhost:2181', 3000);
@@ -21,6 +30,15 @@ class FooController extends Controller
         $produce->setMessages('test', 0, array('linjun3'));
         $result = $produce->send();
         #var_dump($result);
+        return new Response("OK");
+    }
+
+    /**
+     * @Route("/test")
+     */
+    public function testAction(Request $request)
+    {
+        // replace this example code with whatever you need
         return new Response("OK");
     }
 }
