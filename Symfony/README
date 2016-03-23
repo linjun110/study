@@ -1,0 +1,6 @@
+commands:
+php my_project_2_8/app/check.php
+php app/console server:run
+
+#kafka-php
+https://github.com/nmred/kafka-php

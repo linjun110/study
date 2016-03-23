@@ -1,0 +1,14 @@
+{
+    "name": "linjun/php",
+    "description": "test",
+    "require": {
+        "nmred/kafka-php": "0.1.*",
+        "mongodb/mongodb": "^1.0.0"
+    },
+    "authors": [
+        {
+            "name": "linjun",
+            "email": "linjun@amazon.com"
+        }
+    ]
+}
