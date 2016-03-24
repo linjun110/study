@@ -1,6 +1,6 @@
 Install steps:
 =============
-1. zookeeper, kafka, mysql, mongodb
+1. zookeeper, kafka, mysql, mongodb, redis
 2. php-zookeeper, php-kafka, php-mongo
 3. symfony new my_project_2_8 2.8
 
@@ -29,6 +29,31 @@ infrastructures:
             start server: mongod --config /usr/local/etc/mongod.conf
             connect to server: mongo
 
+    redis
+        install: brew install redis
+        ref: 
+            home: http://redis.io
+            command: http://redis.io/commands/append
+            libs for language: http://redis.io/clients
+        usage:
+            start server: redis-server /usr/local/etc/redis.conf
+            connect: redis-cli
+
+    lucene solr
+        install: brew install solr
+        ref: 
+            quickstart: http://lucene.apache.org/solr/quickstart.html
+        usage:
+            start: 
+                1. cd /usr/local/Cellar/solr/4.4.0/libexec/example/
+                2. java -jar start.jar
+                2.1 solr start
+            stop: solr stop
+            monitor: http://localhost:8983/solr/#/
+            commands: 
+                bin/solr create -c linjun
+                bin/post -c linjun example/exampledocs/*.xml
+
     symfony
         usage: php app/console server:run
 
@@ -50,4 +75,6 @@ PHP Extensions:
         usage: http://php.net/manual/zh/mongodb.tutorial.library.php
 
     kafka-php: https://github.com/nmred/kafka-php
+
+    solr: https://github.com/reprovinci/solr-php-client
 
