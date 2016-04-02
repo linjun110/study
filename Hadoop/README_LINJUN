@@ -1,6 +1,10 @@
 mvn clean
 mvn install
 
+mvn dependency:copy-dependencies -DoutputDirectory=target/lib
+mvn assembly:assembly
+mvn exec:exec
+
 hadoop fs -mkdir /tmp/input              在HDFS上新建文件夹
 hadoop fs -put input1.txt /tmp/input  把本地文件input1.txt传到HDFS的/tmp/input目录下
 
