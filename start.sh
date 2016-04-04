@@ -15,10 +15,3 @@ mysql.server start
 # start mongodb
 mongod --config /usr/local/etc/mongod.conf
 
-# start web server
-cd ~/study/Symfony/my_project_2_8
-php app/console server:run
-
-
-
-
