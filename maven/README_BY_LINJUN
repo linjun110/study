@@ -1,9 +1,8 @@
+== Purpose ==
+This is just for maven test
+
 Maven commands:
 http://www.cnblogs.com/holly/archive/2013/06/15/3137041.html
-
-How to create regular java project:
-http://www.yiibai.com/maven/maven_creating_project.html
-
 
 Execute executable jar
 java -jar target/javaViaMvn-1.0-SNAPSHOT.jar
@@ -11,5 +10,10 @@ java -jar target/javaViaMvn-1.0-SNAPSHOT.jar
 mvn comments:
 http://mrlee23.iteye.com/blog/1806412
 
+How to create regular java project:
+    Ref: http://www.yiibai.com/maven/maven_creating_project.html
+
+    mvn archetype:generate
+
 create jar with dependencies:
-mvn assembly:assembly
+    mvn assembly:assembly
