@@ -1,0 +1,4 @@
+1. start spark by:
+    start-all.sh
+2. execute:
+    bin/spark-submit --master local --class com.linjun.bigdata.spark.LinjunPi ~/study/Spark/target/linjunSparkTest-1.0-SNAPSHOT.jar

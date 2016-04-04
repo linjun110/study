@@ -10,3 +10,6 @@ java -jar target/javaViaMvn-1.0-SNAPSHOT.jar
 
 mvn comments:
 http://mrlee23.iteye.com/blog/1806412
+
+create jar with dependencies:
+mvn assembly:assembly
