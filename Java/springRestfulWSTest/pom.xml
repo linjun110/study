@@ -22,10 +22,19 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- add this for web page? -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!-- end of add this for web page -->
+
+    <!-- add this for schedule task-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <!-- end of add this for schedule task-->
 
     <dependency>
         <groupId>org.springframework.boot</groupId>
