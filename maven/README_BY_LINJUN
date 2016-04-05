@@ -1,9 +1,13 @@
 == Purpose ==
 This is just for maven test
 
-Maven commands:
+== Search for artifact ==
+http://mvnrepository.com/
+
+== Maven commands ==
 http://www.cnblogs.com/holly/archive/2013/06/15/3137041.html
 
+== How to ==
 Execute executable jar
 java -jar target/javaViaMvn-1.0-SNAPSHOT.jar
 
