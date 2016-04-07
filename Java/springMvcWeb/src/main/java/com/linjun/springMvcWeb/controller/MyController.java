@@ -15,4 +15,10 @@ public class MyController {
         return "index";
 
     }
+
+    @RequestMapping("/cat")
+    private String cat(){
+        return "cat";
+
+    }
 }

@@ -1,6 +1,19 @@
 Precondition:
 1. install tomcat
     brew install tomcat
+2. change config to different port and webapps root
+    add config to $CATALINA_HOME/conf/server.xml
+        <!-- configure by linjun -->
+        <Service name="linjunService">
+            <Connector port="8081" protocol="org.apache.coyote.http11.Http11NioProtocol"
+                connectionTimeout="20000"
+                redirectPort="8443" />
+            <Engine name="Catalina" defaultHost="localhost">
+                <Host name="localhost"  appBase="linjunWebApps"
+                unpackWARs="true" autoDeploy="true">
+                </Host>
+            </Engine>
+        </Service>
 
 Deploy to tomcat
     deploy.sh
