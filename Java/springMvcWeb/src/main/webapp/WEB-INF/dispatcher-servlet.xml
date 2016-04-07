@@ -21,11 +21,9 @@
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
 
-    <!--
     <mvc:interceptors>
         <bean class="com.linjun.java.springMvcWeb.interceptor.MyInterceptor"></bean>
     </mvc:interceptors>
-    -->
 
     <!--ViewResolver 视图解析器-->
     <!--用于支持Servlet、JSP视图解析-->

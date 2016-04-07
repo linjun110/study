@@ -18,7 +18,8 @@ public class MyInterceptor implements HandlerInterceptor{
                              HttpServletResponse response, Object handler) throws Exception {
         // TODO Auto-generated method stub
         logger.info("Pre Handler");
-        return false;
+        // Return false will make request failed.
+        return true;
     }
 
     public void postHandle(HttpServletRequest request,
