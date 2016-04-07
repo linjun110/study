@@ -21,4 +21,20 @@
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
 
+    <!--
+    <mvc:interceptors>
+        <bean class="com.linjun.java.springMvcWeb.interceptor.MyInterceptor"></bean>
+    </mvc:interceptors>
+    -->
+
+    <!--ViewResolver 视图解析器-->
+    <!--用于支持Servlet、JSP视图解析-->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <!-- 配置jsp路径前缀 -->
+        <property name="prefix" value="/"></property>
+        <!-- 配置URl后缀 -->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
 </beans>

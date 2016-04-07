@@ -75,7 +75,27 @@
       </dependency>
       <!-- end of spring -->
 
-    <!-- cache -->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+      <dependency>
+          <groupId>taglibs</groupId>
+          <artifactId>standard</artifactId>
+          <version>1.1.2</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>javax.servlet.jsp</groupId>
+          <artifactId>jsp-api</artifactId>
+          <version>2.2</version>
+      </dependency>
+
+
+
+      <!-- cache -->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>

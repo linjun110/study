@@ -4,6 +4,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,8 +22,12 @@ public class MyController {
     }
 
     @RequestMapping("/cat")
-    private String cat(){
+    private String cat(ModelMap modelMap){
         logger.info("Cat meow");
+        modelMap.addAttribute("myBoolean1", true);
+        modelMap.addAttribute("myBoolean2", false);
+        modelMap.addAttribute("myInt", 5);
+        modelMap.addAttribute("message", "hi I am message");
         return "cat";
 
     }

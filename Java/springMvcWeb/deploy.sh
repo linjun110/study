@@ -22,6 +22,8 @@ fi
 mvn clean install
 
 # remove old files
+echo "rm "$CATALINA_HOME"/libexec/linjunWebapps/springMvcWeb.war"
 rm "$CATALINA_HOME"/libexec/linjunWebapps/springMvcWeb.war
+echo "rm -rf "$CATALINA_HOME"/libexec/linjunWebapps/springMvcWeb"
 rm -rf "$CATALINA_HOME"/libexec/linjunWebapps/springMvcWeb
 cp ./target/springMvcWeb.war "$CATALINA_HOME"/libexec/linjunWebapps/
