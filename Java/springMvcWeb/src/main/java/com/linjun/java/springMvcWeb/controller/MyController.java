@@ -1,4 +1,4 @@
-package com.linjun.java.springMvcWeb;
+package com.linjun.java.springMvcWeb.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
