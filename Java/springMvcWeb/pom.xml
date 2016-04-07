@@ -56,7 +56,14 @@
         <artifactId>spring-jdbc</artifactId>
         <version>4.2.5.RELEASE</version>
     </dependency>
-    <!-- end of spring -->
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
+    </dependency>
+
+      <!-- end of spring -->
 
     <!-- cache -->
     <dependency>
