@@ -1,0 +1,6 @@
+Precondition:
+1. install tomcat
+    brew install tomcat
+
+Deploy to tomcat
+    deploy.sh
