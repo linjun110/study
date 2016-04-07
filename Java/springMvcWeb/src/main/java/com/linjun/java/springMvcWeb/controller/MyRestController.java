@@ -1,6 +1,7 @@
 package com.linjun.java.springMvcWeb.controller;
 
 import com.linjun.java.springMvcWeb.bo.Cat;
+import com.linjun.java.springMvcWeb.dal.CatDal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/cats")
 public class MyRestController {
-    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public @ResponseBody
-    Cat getCat(@PathVariable String name) {
-        return new Cat(1, "kitty");
-
+    Cat getCat(@PathVariable int id) {
+        return CatDal.getCatById(id);
+        //return new Cat(1, "kitty");
     }
 
 }

@@ -67,7 +67,7 @@ public class DaoImpl {
 
         try {
             logger.info("Connecting to db ...");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/springMvc", "root", "linjunAmazon");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/springMvcWeb?autoReconnect=true&useSSL=false", "root", "linjunAmazon");
             st = (Statement) con.createStatement();
             logger.info("Connected to db.");
         } catch (SQLException e) {
