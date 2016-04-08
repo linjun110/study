@@ -29,13 +29,17 @@ public class MyController {
         modelMap.addAttribute("myInt", 5);
         modelMap.addAttribute("message", "hi I am message");
         return "cat";
-
     }
 
-    @RequestMapping("/dog")
-    private String dog(){
-        logger.info("Dog bark");
-        return "dog";
+    @RequestMapping("/login")
+    private String login(){
+        logger.info("login");
+        return "login";
+    }
 
+    @RequestMapping("/register")
+    private String register(){
+        logger.info("register");
+        return "register";
     }
 }
