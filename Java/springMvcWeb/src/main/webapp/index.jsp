@@ -25,8 +25,22 @@
             <div class="row">
                 <div id="main" class="col-sm-3">
                     <div class="well">
-                        Some words
-                        <a href="/">link</a>
+                        <form action="/login" method="post">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="username">姓名</label>
+                                    <input type="text" id="username" name="_username" value="" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">密码</label>
+                                    <input type="password" id="password" name="_password" class="form-control" />
+                                </div>
+                                <input type="hidden" name="_csrf_token" value="csrf_token"/>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-sign-in"></i>登录
+                                </button>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
                 <div id="main" class="col-sm-6">
