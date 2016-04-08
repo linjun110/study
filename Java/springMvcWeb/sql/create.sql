@@ -40,6 +40,7 @@ COLLATE = utf8_general_ci;
 CREATE TABLE IF NOT EXISTS `springMvcWeb`.`employee` (
  `id` VARCHAR(40) NOT NULL UNIQUE,
  `name` VARCHAR(10) NOT NULL,
+ `pw` VARCHAR(20) NOT NULL,
  `gender` int NOT NULL,
  `birthday` TIMESTAMP,
  `idcard` VARCHAR(30) NOT NULL UNIQUE,
