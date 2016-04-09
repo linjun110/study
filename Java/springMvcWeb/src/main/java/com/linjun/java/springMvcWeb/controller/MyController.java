@@ -1,5 +1,8 @@
 package com.linjun.java.springMvcWeb.controller;
 
+import com.linjun.java.springMvcWeb.bo.Employee;
+import com.linjun.java.springMvcWeb.dal.EmployeeDal;
+import com.linjun.java.springMvcWeb.utils.DateUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -8,6 +11,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 /**
  * Created by linjun on 16/4/7.
@@ -49,8 +54,21 @@ public class MyController {
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    private String addUser(){
+    private String addUser(@RequestParam(value="username", required=true) String username,
+                           @RequestParam(value="password", required=true) String password,
+                           @RequestParam(value="idCard", required=true) String idCard,
+                           @RequestParam(value="gender", required=true) Integer gender,
+                           @RequestParam(value="birthday", required=true) String birthday){
         logger.info("addUser");
+        logger.info(username);
+        logger.info(password);
+        logger.info(idCard);
+        logger.info(gender);
+        logger.info(birthday);
+
+        Employee e = new Employee(username, password, idCard, gender, DateUtil.parseDateFromString(birthday).getTime());
+        EmployeeDal.create(e);
+
         return "redirect:/index";
     }
 }

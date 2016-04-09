@@ -32,24 +32,24 @@
                 </div>
                 <div id="main" class="col-sm-4">
                     <div class="well">
-                        <form action="addUser" method="post">
+                        <form action="addUser" method="post" commandName="employee" role="form">
                             <fieldset>
                                 <legend><i class="fa fa-lock"></i>Register</legend>
                                 <div class="form-group">
                                     <label>姓名</label>
-                                    <input type="text" id="username" name="_username" value="" class="form-control"/>
+                                    <input type="text" id="username" name="username" value="" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label>密码</label>
-                                    <input type="password" id="password" name="_password" class="form-control" />
+                                    <input type="password" id="password" name="password" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label>身份证</label>
-                                    <input type="text" id="idCard" name="_idCard" class="form-control" />
+                                    <input type="text" id="idCard" name="idCard" class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label>性别</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="gender">
                                         <option value="0">男</option>
                                         <option value="1">女</option>
                                     </select>
@@ -57,7 +57,7 @@
                                 <div class="form-group">
                                     <label>出生日期</label>
                                     <div class="input-append date form_datetime">
-                                        <input size="16" type="text" class="datetimeInput" value="" readonly>
+                                        <input size="16" type="text" class="datetimeInput" name="birthday" value="" readonly>
                                         <span class="add-on"><i class="icon-th"></i></span>
                                     </div>
                                 </div>

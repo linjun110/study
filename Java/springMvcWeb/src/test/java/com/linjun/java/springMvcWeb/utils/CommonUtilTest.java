@@ -6,6 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import org.easymock.EasyMock;
+
+import java.util.Date;
+
 import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.capture;
 import static org.easymock.EasyMock.eq;
@@ -34,5 +37,25 @@ public class CommonUtilTest {
         logger.info("Generated UUID: " + uuid);
 
         assertNotEquals(uuid, "");
+    }
+
+    @Test
+    public void test(){
+        String dateStr = "2016-4-16";
+        String[] arr = dateStr.split("-");
+        Date d = new Date();
+        logger.info(arr[0]);
+        logger.info(arr[1]);
+        logger.info(arr[2]);
+        d.setYear(Integer.parseInt(arr[0]));
+        d.setMonth(Integer.parseInt(arr[1]));
+        d.setDate(Integer.parseInt(arr[2]));
+        logger.info(d.getTime());
+        Date e = new Date();
+        e.setTime(d.getTime());
+
+        logger.info(e.getYear());
+        logger.info(e.getMonth());
+        logger.info(e.getDate());
     }
 }
