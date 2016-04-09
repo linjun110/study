@@ -8,6 +8,7 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <!--<link rel="stylesheet" href='css/app.css' />-->
         <link rel="stylesheet" href='css/bootstrap.css' />
+        <link rel="stylesheet" href='css/index.css' />
 
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
@@ -48,48 +49,32 @@
                     </div>
                 </div>
                 <div id="main" class="col-sm-6">
-                    <c:forEach var="cookies" items="${cookie}">
-
-                        <strong><c:out value=
-                            "${cookies.key}"/></strong>: Object=<c:out value="${cookies.value}"/>, value=<c:out value="${cookies.value.value}"/><br />
-
-                    </c:forEach>
                     <h3>
                         <i class="fa fa-long-arrow-left"></i>
-                        Position 1
+                        Cookies
                     </h3>
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Role</th>
+                                <th>Key</th>
+                                <th>Value</th>
                             </tr>
                         </thead>
                         <tbody>
+                        <c:forEach var="cookies" items="${cookie}">
                             <tr>
-                                <td>linjun</td>
-                                <td>linjun</td>
-                                <td><code>ROLE_USER</code></td>
+                                <td><strong><c:out value="${cookies.key}"/></strong></td>
+                                <td><code><c:out value="${cookies.value.value}"/></code></td>
                             </tr>
-                            <tr>
-                                <td>lichun</td>
-                                <td>lichun</td>
-                                <td><code>ROLE_ADMIN</code></td>
-                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                     <div id="login-users-help" class="panel panel-default">
                         <div class="panel-body">
                             <p>
                                 <span class="label label-success">note</span>
-                                reload_fixtures<br/>
-                                <code class="console">$ php app/console doctrine:fixtures:load</code>
-                            </p>
-                            <p>
-                                <span class="label label-success">tip</span>
-                                add_user<br/>
-                                <code class="console">$ php app/console app:add-user</code>
+                                Just for debug<br/>
+                                <code class="console">$ ./desploy.sh</code>
                             </p>
                         </div>
                     </div>
@@ -107,7 +92,7 @@
                     </div>
                     <div class="section source-code">
                         <p>
-                            Click on this button to show the source code of the <strong>Controller</strong> and <strong>template</strong> used to render this page.
+                            Click on this button to show <strong>Model</strong>
                         </p>
                         <button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#sourceCodeModal">
                           <i class="fa fa-cogs"></i> Show Modal

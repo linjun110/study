@@ -18,6 +18,7 @@ public class MyInterceptor implements HandlerInterceptor{
                              HttpServletResponse response, Object handler) throws Exception {
         // TODO Auto-generated method stub
         logger.debug("Pre Handler");
+        // TODO: validate login status, if not valid, should go to login
         // Return false will make request failed.
         return true;
     }

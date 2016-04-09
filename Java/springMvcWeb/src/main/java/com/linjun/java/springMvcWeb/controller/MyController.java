@@ -55,8 +55,6 @@ public class MyController {
             response.addCookie(token);
         }else{
             logger.info("login fail");
-            response.addCookie(new Cookie("id", ""));
-            response.addCookie(new Cookie("name", ""));
             response.addCookie(new Cookie("token", ""));
         }
 
