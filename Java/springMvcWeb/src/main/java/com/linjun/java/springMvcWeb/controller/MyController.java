@@ -11,6 +11,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
+import org.springframework.web.bind.annotation.CookieValue;
 
 import java.util.Date;
 
@@ -27,24 +31,36 @@ public class MyController {
     }
 
     @RequestMapping("/index")
-    private String index(){
+    private String index(HttpServletRequest request, ModelMap modelMap){
+        Cookie[] cookies = request.getCookies();
+        for (int i=0; i<cookies.length; i++) {
+            if(cookies[i].getName().equals("name")){
+                modelMap.addAttribute("name", cookies[i].getValue());
+            }
+        }
         return "index";
     }
 
-    @RequestMapping("/cat")
-    private String cat(ModelMap modelMap){
-        logger.info("Cat meow");
-        modelMap.addAttribute("myBoolean1", true);
-        modelMap.addAttribute("myBoolean2", false);
-        modelMap.addAttribute("myInt", 5);
-        modelMap.addAttribute("message", "hi I am message");
-        return "cat";
-    }
-
-    @RequestMapping("/login")
-    private String login(){
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    private String login(HttpServletResponse response, ModelMap modelMap, @RequestParam(value="username", required=true) String username,
+            @RequestParam(value="password", required=true) String password){
         logger.info("login");
-        return "login";
+        Employee employee = EmployeeDal.getByNameAndPassword(username, password);
+        if(null != employee){
+            logger.info("login success");
+            response.addCookie(new Cookie("id", employee.getUuid()));
+            response.addCookie(new Cookie("name", employee.getName()));
+            Cookie token = new Cookie("token", "bbb");
+            token.setMaxAge(60);
+            response.addCookie(token);
+        }else{
+            logger.info("login fail");
+            response.addCookie(new Cookie("id", ""));
+            response.addCookie(new Cookie("name", ""));
+            response.addCookie(new Cookie("token", ""));
+        }
+
+        return "redirect:/index";
     }
 
     @RequestMapping("/register")
@@ -60,15 +76,20 @@ public class MyController {
                            @RequestParam(value="gender", required=true) Integer gender,
                            @RequestParam(value="birthday", required=true) String birthday){
         logger.info("addUser");
-        logger.info(username);
-        logger.info(password);
-        logger.info(idCard);
-        logger.info(gender);
-        logger.info(birthday);
-
         Employee e = new Employee(username, password, idCard, gender, DateUtil.parseDateFromString(birthday).getTime());
         EmployeeDal.create(e);
 
         return "redirect:/index";
     }
+
+    @RequestMapping("/cat")
+    private String cat(ModelMap modelMap){
+        logger.info("Cat meow");
+        modelMap.addAttribute("myBoolean1", true);
+        modelMap.addAttribute("myBoolean2", false);
+        modelMap.addAttribute("myInt", 5);
+        modelMap.addAttribute("message", "hi I am message");
+        return "cat";
+    }
+
 }

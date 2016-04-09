@@ -30,11 +30,11 @@
                             <fieldset>
                                 <div class="form-group">
                                     <label for="username">姓名</label>
-                                    <input type="text" id="username" name="_username" value="" class="form-control"/>
+                                    <input type="text" id="username" name="username" value="<c:out value="${name}"></c:out>" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">密码</label>
-                                    <input type="password" id="password" name="_password" class="form-control" />
+                                    <input type="password" id="password" name="password" class="form-control" />
                                 </div>
                                 <input type="hidden" name="_csrf_token" value="csrf_token"/>
                                 <button type="submit" class="btn btn-primary">
@@ -48,6 +48,12 @@
                     </div>
                 </div>
                 <div id="main" class="col-sm-6">
+                    <c:forEach var="cookies" items="${cookie}">
+
+                        <strong><c:out value=
+                            "${cookies.key}"/></strong>: Object=<c:out value="${cookies.value}"/>, value=<c:out value="${cookies.value.value}"/><br />
+
+                    </c:forEach>
                     <h3>
                         <i class="fa fa-long-arrow-left"></i>
                         Position 1

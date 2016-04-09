@@ -14,7 +14,8 @@ public class EmployeeDalTest {
     @Test
     public void createEmployee(){
         Employee employee = new Employee();
-        employee.setUuid(CommonUtil.genUUID());
+        String uuid = CommonUtil.genUUID();
+        employee.setUuid(uuid);
         employee.setName("name");
         employee.setPassword("pw");
         employee.setIdCard("idCard");
