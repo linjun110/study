@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,9 +17,13 @@ public class MyController {
     private static Logger logger = LogManager.getLogger(MyController.class);
 
     @RequestMapping("/")
-    private String hello(){
-        return "index";
+    private String home(){
+        return "forward:/index";
+    }
 
+    @RequestMapping("/index")
+    private String index(){
+        return "index";
     }
 
     @RequestMapping("/cat")
@@ -41,5 +46,11 @@ public class MyController {
     private String register(){
         logger.info("register");
         return "register";
+    }
+
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    private String addUser(){
+        logger.info("addUser");
+        return "redirect:/index";
     }
 }

@@ -6,12 +6,13 @@
         <meta charset="UTF-8" />
         <title>Welcome!</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
-        <link rel="stylesheet" href='css/app.css' />
+        <!--<link rel="stylesheet" href='css/app.css' />-->
+        <link rel="stylesheet" href='css/bootstrap.css' />
 
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="">
+                    <a class="navbar-brand" href="index">
                         LINJUN WEBSITE
                     </a>
                 </div>
@@ -25,7 +26,7 @@
             <div class="row">
                 <div id="main" class="col-sm-3">
                     <div class="well">
-                        <form action="/login" method="post">
+                        <form action="login" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <label for="username">姓名</label>
@@ -39,6 +40,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-sign-in"></i>登录
                                 </button>
+                                <span class="btn btn-success" id="register">
+                                    <i class="fa fa-sign-in"></i>注册
+                                </span>
                             </fieldset>
                         </form>
                     </div>
@@ -123,7 +127,11 @@
                 </div>
             </div>
         </div>
-        <script type='text/javascript' src='js/app.js'></script>
+        <!--<script type='text/javascript' src='js/app.js'></script>-->
+        <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+        <script type='text/javascript' src='js/bootstrap.js'></script>
+        <script type='text/javascript' src='js/bootstrap-datepicker.min.js'></script>
+        <script type='text/javascript' src='js/index.js'></script>
     </body>
     <footer>
         <div class="container">

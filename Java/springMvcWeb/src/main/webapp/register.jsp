@@ -9,12 +9,14 @@
         <meta charset="UTF-8" />
         <title>Welcome!</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
-        <link rel="stylesheet" href='css/app.css' />
+        <!--<link rel="stylesheet" href='css/app.css' />-->
+        <link rel="stylesheet" href='css/bootstrap.css' />
+        <link rel="stylesheet" href='css/bootstrap-datepicker3.min.css' />
 
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="">
+                    <a class="navbar-brand" href="index">
                         LINJUN WEBSITE
                     </a>
                 </div>
@@ -30,7 +32,7 @@
                 </div>
                 <div id="main" class="col-sm-4">
                     <div class="well">
-                        <form action="/addUser" method="post">
+                        <form action="addUser" method="post">
                             <fieldset>
                                 <legend><i class="fa fa-lock"></i>Register</legend>
                                 <div class="form-group">
@@ -55,7 +57,7 @@
                                 <div class="form-group">
                                     <label>出生日期</label>
                                     <div class="input-append date form_datetime">
-                                        <input size="16" type="text" value="" readonly>
+                                        <input size="16" type="text" class="datetimeInput" value="" readonly>
                                         <span class="add-on"><i class="icon-th"></i></span>
                                     </div>
                                 </div>
@@ -71,7 +73,11 @@
                 </div>
             </div>
         </div>
-        <script type='text/javascript' src='js/app.js'></script>
+        <!--<script type='text/javascript' src='js/app.js'></script>-->
+        <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+        <script type='text/javascript' src='js/bootstrap.js'></script>
+        <script type='text/javascript' src='js/bootstrap-datepicker.min.js'></script>
+        <script type='text/javascript' src='js/register.js'></script>
     </body>
     <footer>
         <div class="container">

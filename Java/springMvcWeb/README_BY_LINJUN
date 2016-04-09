@@ -29,3 +29,8 @@ Ref:
 
 make favicon online:
     http://tool.lu/favicon/
+
+bootstrap-datepicker:
+http://bootstrap-datepicker.readthedocs.org/en/latest/
+http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox
+https://github.com/eternicode/bootstrap-datepicker/tree/master/docs
