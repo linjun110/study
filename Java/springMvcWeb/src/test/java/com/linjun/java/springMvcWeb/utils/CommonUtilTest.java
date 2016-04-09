@@ -20,6 +20,8 @@ import static org.powermock.api.easymock.PowerMock.expectNew;
 import static org.powermock.api.easymock.PowerMock.replay;
 import static org.powermock.api.easymock.PowerMock.verify;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 /**
  * Created by linjun on 16/4/8.
  */
@@ -57,5 +59,14 @@ public class CommonUtilTest {
         logger.info(e.getYear());
         logger.info(e.getMonth());
         logger.info(e.getDate());
+    }
+
+    @Test
+    public void encode(){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        logger.info(passwordEncoder.encode("linjunpw"));
+        logger.info(passwordEncoder.encode("linjunpw"));
+        logger.info(passwordEncoder.encode("linjunpw"));
+
     }
 }

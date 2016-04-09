@@ -27,7 +27,7 @@
             <div class="row">
                 <div id="main" class="col-sm-3">
                     <div class="well">
-                        <form action="login" method="post">
+                        <form action="<c:url value='/auth/login_check?targetUrl=${targetUrl}' />" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <label for="username">姓名</label>

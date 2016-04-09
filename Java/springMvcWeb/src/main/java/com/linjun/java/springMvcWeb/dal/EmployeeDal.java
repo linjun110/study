@@ -67,16 +67,17 @@ public class EmployeeDal {
             String sql = "select * from employee where name='" + name + "' and pw='"+password+"'";
             logger.info("sql: " + sql);
             rs = DaoImpl.getInstance().query(sql);
-            Employee employee = new Employee();
-            while (rs.next()) {
+            if(rs.next()) {
+                Employee employee = new Employee();
                 employee.setUuid(rs.getString("id"));
                 employee.setName(rs.getString("name"));
                 employee.setPassword(rs.getString("pw"));
                 employee.setIdCard(rs.getString("idCard"));
                 employee.setGender(rs.getInt("gender"));
                 employee.setBirthday(rs.getLong("birthday"));
+                return employee;
             }
-            return employee;
+            return null;
         }catch (BusinessException e){
             logger.error("Failed to get employee by name and password, reason:" + e.getMessage());
         }catch (SQLException e2){

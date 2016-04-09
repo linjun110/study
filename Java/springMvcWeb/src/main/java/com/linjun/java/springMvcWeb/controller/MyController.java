@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Cookie;
 import org.springframework.web.bind.annotation.CookieValue;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.util.Date;
 
 /**
@@ -45,7 +47,8 @@ public class MyController {
     private String login(HttpServletResponse response, ModelMap modelMap, @RequestParam(value="username", required=true) String username,
             @RequestParam(value="password", required=true) String password){
         logger.info("login");
-        Employee employee = EmployeeDal.getByNameAndPassword(username, password);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        Employee employee = EmployeeDal.getByNameAndPassword(username, passwordEncoder.encode(password));
         if(null != employee){
             logger.info("login success");
             response.addCookie(new Cookie("id", employee.getUuid()));
@@ -74,7 +77,9 @@ public class MyController {
                            @RequestParam(value="gender", required=true) Integer gender,
                            @RequestParam(value="birthday", required=true) String birthday){
         logger.info("addUser");
-        Employee e = new Employee(username, password, idCard, gender, DateUtil.parseDateFromString(birthday).getTime());
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        Employee e = new Employee(username, passwordEncoder.encode(password), idCard, gender, DateUtil.parseDateFromString(birthday).getTime());
         EmployeeDal.create(e);
 
         return "redirect:/index";

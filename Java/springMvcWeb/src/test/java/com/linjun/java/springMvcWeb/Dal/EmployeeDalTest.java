@@ -3,6 +3,7 @@ package com.linjun.java.springMvcWeb.Dal;
 import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.dal.EmployeeDal;
 import com.linjun.java.springMvcWeb.utils.CommonUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
@@ -11,7 +12,7 @@ import java.util.Date;
  * Created by linjun on 16/4/9.
  */
 public class EmployeeDalTest {
-    @Test
+    @Ignore
     public void createEmployee(){
         Employee employee = new Employee();
         String uuid = CommonUtil.genUUID();
