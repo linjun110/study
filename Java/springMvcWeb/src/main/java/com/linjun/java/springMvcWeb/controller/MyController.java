@@ -43,13 +43,13 @@ public class MyController {
         return "index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/myLogin", method = RequestMethod.POST)
     private String login(HttpServletResponse response, ModelMap modelMap, @RequestParam(value="username", required=true) String username,
             @RequestParam(value="password", required=true) String password){
         logger.info("login");
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        Employee employee = EmployeeDal.getByNameAndPassword(username, passwordEncoder.encode(password));
-        if(null != employee){
+        Employee employee = EmployeeDal.getByName(username);
+        if(null != employee && passwordEncoder.matches(password, employee.getPassword())){
             logger.info("login success");
             response.addCookie(new Cookie("id", employee.getUuid()));
             response.addCookie(new Cookie("name", employee.getName()));

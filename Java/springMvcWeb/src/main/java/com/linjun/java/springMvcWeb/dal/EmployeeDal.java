@@ -85,4 +85,30 @@ public class EmployeeDal {
         }
         return null;
     }
+
+    public static Employee getByName(String name){
+        ResultSet rs = null;
+
+        try{
+            String sql = "select * from employee where name='" + name + "'";
+            logger.info("sql: " + sql);
+            rs = DaoImpl.getInstance().query(sql);
+            if(rs.next()) {
+                Employee employee = new Employee();
+                employee.setUuid(rs.getString("id"));
+                employee.setName(rs.getString("name"));
+                employee.setPassword(rs.getString("pw"));
+                employee.setIdCard(rs.getString("idCard"));
+                employee.setGender(rs.getInt("gender"));
+                employee.setBirthday(rs.getLong("birthday"));
+                return employee;
+            }
+            return null;
+        }catch (BusinessException e){
+            logger.error("Failed to get employee by name, reason:" + e.getMessage());
+        }catch (SQLException e2){
+            logger.error("Failed to get employee by name, reason:" + e2.getMessage());
+        }
+        return null;
+    }
 }

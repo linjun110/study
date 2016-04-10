@@ -12,7 +12,7 @@
 			<cache-control />
 		</headers>
 
-		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/admin**" access="" />
 
 		<form-login login-page="/login" 
 		    default-target-url="/welcome"
