@@ -1,5 +1,8 @@
 package com.linjun.java.springMvcWeb.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.linjun.java.springMvcWeb.bo.BatchEmployeeBO;
+import com.linjun.java.springMvcWeb.bo.Employee;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -73,8 +76,16 @@ public class CommonUtilTest {
 
     @Test
     public void unescape(){
-        String a = "%5B%7B%22name%22%3A%22linjun%22%2C%22pw%22%3A%22pw%22%2C%22idCard%22%3A%2212345678%22%7D%2C%7B%22name%22%3A%22lily%22%2C%22pw%22%3A%22pw%22%2C%22idCard%22%3A%2212345679%22%7D%5D=";
-        String realJSON = StringEscapeUtils.unescapeHtml(a);
-        logger.info(realJSON);
+        String a = "[{\"name\":\"linjun\",\"pw\":\"pw\",\"idCard\":\"12345678\"},{\"name\":\"lily\",\"pw\":\"pw\",\"idCard\":\"12345679\"}]";
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            BatchEmployeeBO[] jsonToArray = mapper.readValue(a, BatchEmployeeBO[].class);
+
+            logger.info("hah");
+            logger.info(jsonToArray.length);
+        }catch (Exception e){
+            logger.info("exception");
+
+        }
     }
 }

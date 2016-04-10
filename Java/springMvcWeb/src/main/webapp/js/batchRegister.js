@@ -53,11 +53,12 @@ $(document).ready(function(){
     $("#batchRegister").click(function(){
         var data = editor.get();
 
-console.log(JSON.stringify(data));
         $.ajax({
             type: "POST",
             url: "rest/adminRestBatchRegister",
             dataType: "json",
+            //contentType: "json",
+            contentType: "application/json",
             data: JSON.stringify(data),
             success: function(){
                 alert("success");
