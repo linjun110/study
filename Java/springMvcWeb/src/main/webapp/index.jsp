@@ -126,6 +126,6 @@
             </div>
         </div>
     </body>
-    <script type='text/javascript' src='js/index.js'></script>
     <my-taglib:footer />
+    <script type='text/javascript' src='js/index.js'></script>
 </html>

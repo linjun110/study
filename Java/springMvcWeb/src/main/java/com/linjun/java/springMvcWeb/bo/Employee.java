@@ -1,50 +1,38 @@
 package com.linjun.java.springMvcWeb.bo;
 
-import com.linjun.java.springMvcWeb.utils.CommonUtil;
-
 /**
  * Created by linjun on 16/4/9.
  */
 public class Employee {
-    private String uuid;
+    private String id;
     private String name;
     private String password;
     private String idCard;
 
-    private String role;
     private Integer gender;
-
-    public Integer getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Integer enabled) {
-        this.enabled = enabled;
-    }
+    private Long birthday;
+    private String role;
 
     private Integer enabled;
-    private Long birthday;
 
     public Employee() {
-        this.role = "ROLE_ADMIN";
-        this.enabled = 1;
     }
-    public Employee(String name, String password, String idCard, Integer gender, Long birthday) {
+    public Employee(String name, String password, String idCard, Integer gender, Long birthday, String role, Integer enabled) {
         this.name = name;
         this.password = password;
         this.idCard = idCard;
         this.gender = gender;
         this.birthday = birthday;
-        this.role = "ROLE_ADMIN";
-        this.enabled = 1;
+        this.role = role;
+        this.enabled = enabled;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getId() {
+        return id;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -95,4 +83,11 @@ public class Employee {
         this.role = role;
     }
 
+    public Integer getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Integer enabled) {
+        this.enabled = enabled;
+    }
 }

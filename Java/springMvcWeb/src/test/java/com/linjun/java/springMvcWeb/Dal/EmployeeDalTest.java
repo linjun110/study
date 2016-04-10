@@ -4,7 +4,6 @@ import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.dal.EmployeeDal;
 import com.linjun.java.springMvcWeb.utils.CommonUtil;
 import org.junit.Ignore;
-import org.junit.Test;
 
 import java.util.Date;
 
@@ -16,7 +15,7 @@ public class EmployeeDalTest {
     public void createEmployee(){
         Employee employee = new Employee();
         String uuid = CommonUtil.genUUID();
-        employee.setUuid(uuid);
+        employee.setId(uuid);
         employee.setName("name");
         employee.setPassword("pw");
         employee.setIdCard("idCard");

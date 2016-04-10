@@ -56,7 +56,7 @@
             </div>
         </div>
     </body>
-    <script type='text/javascript' src='js/register.js'></script>
     <my-taglib:footer />
+    <script type='text/javascript' src='js/register.js'></script>
 </html>
 
