@@ -43,6 +43,13 @@ public class SecurityController {
         return "register";
     }
 
+    @RequestMapping("/batchRegister")
+    private String batchRegister(){
+        logger.info("batchRegister");
+        //TODO: add function to batch Register employee
+        return "batchRegister";
+    }
+
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     private String addUser(@RequestParam(value="username", required=true) String username,
                            @RequestParam(value="password", required=true) String password,
