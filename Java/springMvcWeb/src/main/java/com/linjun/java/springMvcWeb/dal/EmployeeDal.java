@@ -44,13 +44,14 @@ public class EmployeeDal {
 
     public static void create(Employee employee) {
         try{
-            String sql = "insert into employee(id, name, pw, gender, birthday, idcard)" +
+            String sql = "insert into employee(id, name, pw, gender, birthday, idcard, role)" +
                     " values(\"" + CommonUtil.genUUID() +
                     "\", \"" + employee.getName() +
                     "\", \"" + employee.getPassword() +
                     "\", " + employee.getGender() +
                     ", \"" + employee.getBirthday() +
                     "\", \"" + employee.getIdCard() +
+                    "\", \"" + employee.getRole() +
                     "\")";
             logger.info("sql: " + sql);
             DaoImpl.getInstance().execute(sql);

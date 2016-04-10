@@ -10,10 +10,24 @@ public class Employee {
     private String name;
     private String password;
     private String idCard;
+
+    private String role;
     private Integer gender;
+
+    public Integer getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Integer enabled) {
+        this.enabled = enabled;
+    }
+
+    private Integer enabled;
     private Long birthday;
 
     public Employee() {
+        this.role = "ROLE_ADMIN";
+        this.enabled = 1;
     }
     public Employee(String name, String password, String idCard, Integer gender, Long birthday) {
         this.name = name;
@@ -21,6 +35,8 @@ public class Employee {
         this.idCard = idCard;
         this.gender = gender;
         this.birthday = birthday;
+        this.role = "ROLE_ADMIN";
+        this.enabled = 1;
     }
 
     public String getUuid() {
@@ -70,4 +86,13 @@ public class Employee {
     public void setBirthday(Long birthday) {
         this.birthday = birthday;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }

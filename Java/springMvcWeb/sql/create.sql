@@ -44,6 +44,8 @@ CREATE TABLE IF NOT EXISTS `springMvcWeb`.`employee` (
  `gender` int NOT NULL,
  `birthday` BIGINT,
  `idcard` VARCHAR(30) NOT NULL UNIQUE,
+ `role` VARCHAR(10) NOT NULL,
+ `enabled` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB
