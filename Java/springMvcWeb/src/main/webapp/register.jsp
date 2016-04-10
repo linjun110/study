@@ -3,28 +3,10 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+<%@ taglib prefix="my-taglib" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Welcome!</title>
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
-        <!--<link rel="stylesheet" href='css/app.css' />-->
-        <link rel="stylesheet" href='css/bootstrap.css' />
-        <link rel="stylesheet" href='css/bootstrap-datepicker3.min.css' />
-
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index">
-                        LINJUN WEBSITE
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                </div>
-            </div>
-        </div>
-    </head>
+    <my-taglib:header />
     <body>
         <div class="container body-container">
             <div class="row">
@@ -61,7 +43,7 @@
                                         <span class="add-on"><i class="icon-th"></i></span>
                                     </div>
                                 </div>
-                                <input type="hidden" name="_csrf_token" value="csrf_token"/>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-sign-in"></i>注册
                                 </button>
@@ -73,24 +55,8 @@
                 </div>
             </div>
         </div>
-        <!--<script type='text/javascript' src='js/app.js'></script>-->
-        <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
-        <script type='text/javascript' src='js/bootstrap.js'></script>
-        <script type='text/javascript' src='js/bootstrap-datepicker.min.js'></script>
-        <script type='text/javascript' src='js/register.js'></script>
     </body>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div id="footer-copyright" class="col-md-6">
-                    <p>LinJun Project</p>
-                    <p></p>
-                </div>
-                <div id="footer-resources" class="col-md-6">
-                    <p> </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script type='text/javascript' src='js/register.js'></script>
+    <my-taglib:footer />
 </html>
 

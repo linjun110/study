@@ -17,6 +17,7 @@ import javax.servlet.http.Cookie;
 import org.springframework.web.bind.annotation.CookieValue;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
 
@@ -70,6 +71,24 @@ public class MyController {
         return "register";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+                              @RequestParam(value = "logout", required = false) String logout) {
+
+        ModelAndView model = new ModelAndView();
+        if (error != null) {
+            model.addObject("error", "无效的姓名或密码!");
+        }
+
+        if (logout != null) {
+            model.addObject("msg", "成功登出.");
+        }
+        model.setViewName("index");
+
+        return model;
+
+    }
+
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     private String addUser(@RequestParam(value="username", required=true) String username,
                            @RequestParam(value="password", required=true) String password,
@@ -93,6 +112,18 @@ public class MyController {
         modelMap.addAttribute("myInt", 5);
         modelMap.addAttribute("message", "hi I am message");
         return "cat";
+    }
+
+    @RequestMapping(value = "/admin**", method = RequestMethod.GET)
+    public ModelAndView adminPage() {
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Security Password Encoder");
+        model.addObject("message", "This page is for ROLE_ADMIN only!");
+        model.setViewName("admin");
+
+        return model;
+
     }
 
 }
