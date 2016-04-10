@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.easymock.EasyMock;
 
 import java.util.Date;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import static org.easymock.EasyMock.anyObject;
 import static org.easymock.EasyMock.capture;
@@ -68,5 +69,12 @@ public class CommonUtilTest {
         logger.info(passwordEncoder.encode("linjunpw"));
         logger.info(passwordEncoder.encode("linjunpw"));
 
+    }
+
+    @Test
+    public void unescape(){
+        String a = "%5B%7B%22name%22%3A%22linjun%22%2C%22pw%22%3A%22pw%22%2C%22idCard%22%3A%2212345678%22%7D%2C%7B%22name%22%3A%22lily%22%2C%22pw%22%3A%22pw%22%2C%22idCard%22%3A%2212345679%22%7D%5D=";
+        String realJSON = StringEscapeUtils.unescapeHtml(a);
+        logger.info(realJSON);
     }
 }

@@ -28,14 +28,15 @@ $(document).ready(function(){
     var editor2 = new JSONEditor(container2, options2);
 
     // set json
-    var json = {
-        "Array": [1, 2, 3],
-        "Boolean": true,
-        "Null": null,
-        "Number": 123,
-        "Object": {"a": "b", "c": "d"},
-        "String": "Hello World"
-    };
+    var json = [{
+            "name": "linjun",
+            "pw": "pw",
+            "idCard": "12345678"
+        },{
+            "name": "lily",
+            "pw": "pw",
+            "idCard": "12345679"
+        }];
     editor.set(json);
     editor2.set(json);
 
@@ -47,5 +48,23 @@ $(document).ready(function(){
     });
     $("#toCode .convert-left").click(function(){
         editor.set(editor2.get());
+    });
+
+    $("#batchRegister").click(function(){
+        var data = editor.get();
+
+console.log(JSON.stringify(data));
+        $.ajax({
+            type: "POST",
+            url: "rest/adminRestBatchRegister",
+            dataType: "json",
+            data: JSON.stringify(data),
+            success: function(){
+                alert("success");
+            },
+            error: function(){
+                alert("error");
+            }
+        });
     });
 });

@@ -34,7 +34,6 @@ public class SecurityController {
         model.setViewName("index");
 
         return model;
-
     }
 
     @RequestMapping("/register")
@@ -43,10 +42,9 @@ public class SecurityController {
         return "register";
     }
 
-    @RequestMapping("/batchRegister")
-    private String batchRegister(){
+    @RequestMapping("/adminBatchRegister")
+    private String batchRegister() {
         logger.info("batchRegister");
-        //TODO: add function to batch Register employee
         return "batchRegister";
     }
 

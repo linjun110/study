@@ -55,6 +55,11 @@
                         </div>
                       </div>
                     </div>
+                    <div>
+                        <button id="batchRegister" class="btn btn-primary">
+                            <i class="fa fa-sign-in"></i>批量注册
+                        </button>
+                    </div>
                 </div>
 
                 <div id="main" class="col-sm-5">
