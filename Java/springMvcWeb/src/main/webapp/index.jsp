@@ -4,9 +4,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <%@ taglib prefix="my-taglib" tagdir="/WEB-INF/tags"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.linjun.java.springMvcWeb.bo.Employee"%>
+<%@ page import="com.linjun.java.springMvcWeb.helpers.EmployeeHelper"%>
 <!DOCTYPE html>
 <html>
     <my-taglib:header />
+    <style>
+    .password{
+        width: 140px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    </style>
     <body>
         <div class="container body-container">
             <div class="row">
@@ -60,6 +70,47 @@
                         <i class="fa fa-long-arrow-left"></i>
                         Cookies
                     </h3>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th class="password">password</th>
+                                <th>idcard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            List<Employee> employees = EmployeeHelper.get();
+                            for(Employee e: employees){
+                        %>
+                            <tr>
+                                <td><strong>
+                        <%=
+                            e.getId()
+                        %>
+                                </strong></td>
+                                <td>
+                        <%=
+                            e.getName()
+                        %>
+                                </td>
+                                <td class="password">
+                        <%=
+                            e.getPassword()
+                        %>
+                                </td>
+                                <td>
+                        <%=
+                            e.getIdCard()
+                        %>
+                                </td>
+                            </tr>
+                        <%
+                            }
+                        %>
+                        </tbody>
+                    </table>
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>

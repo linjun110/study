@@ -34,15 +34,16 @@
     <body>
         <div class="container body-container">
             <div class="row">
-                <div id="main" class="col-sm-6">
+                <div id="main" class="col-sm-5">
                     <div class="well">
                         <div id="jsoneditor" style="width: 400px; height: 400px;"></div>
                     </div>
                 </div>
 
-                <div id="main" class="col-sm-1">
-                    <div id="splitter">
-                      <div id="buttons">
+                <div id="main" class="col-sm-2">
+                    <div id="splitter" class="well" style="padding:40px;">
+                      <img title="meow" src="images/meow.jpg" style="width: 85px; height: 60px;"/>
+                      <div style="padding:25px;">
                         <div>
                           <button id="toTree" class="convert" title="Copy code to tree editor (Ctrl + >)">
                             <div class="convert-right"></div>
@@ -54,11 +55,11 @@
                           </button>
                         </div>
                       </div>
-                    </div>
-                    <div>
-                        <button id="batchRegister" class="btn btn-primary">
-                            <i class="fa fa-sign-in"></i>批量注册
-                        </button>
+                      <div>
+                          <button id="batchRegister" class="btn btn-primary">
+                              <i class="fa fa-sign-in"></i>批量注册
+                          </button>
+                      </div>
                     </div>
                 </div>
 

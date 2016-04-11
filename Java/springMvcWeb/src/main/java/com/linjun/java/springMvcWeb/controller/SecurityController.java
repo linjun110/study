@@ -2,10 +2,10 @@ package com.linjun.java.springMvcWeb.controller;
 
 import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.dal.EmployeeDal;
+import com.linjun.java.springMvcWeb.helpers.EmployeeHelper;
 import com.linjun.java.springMvcWeb.utils.DateUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,6 +38,7 @@ public class SecurityController {
 
     @RequestMapping("/register")
     private String registerPage(){
+        logger.info("access register page");
         return "register";
     }
 
@@ -53,14 +54,12 @@ public class SecurityController {
                            @RequestParam(value="gender", required=true) Integer gender,
                            @RequestParam(value="birthday", required=true) String birthday){
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        Employee e = new Employee(username,
-                passwordEncoder.encode(password),
+        EmployeeHelper.create(username,
+                password,
                 idCard,
                 gender,
-                DateUtil.parseDateFromString(birthday).getTime(),
-                "ROLE_ADMIN", 1);
-        EmployeeDal.create(e);
+                birthday,
+                "ROLE_ADMIN");
 
         return "redirect:/index";
     }

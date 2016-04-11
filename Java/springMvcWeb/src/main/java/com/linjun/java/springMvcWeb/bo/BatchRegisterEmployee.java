@@ -6,6 +6,7 @@ package com.linjun.java.springMvcWeb.bo;
 public class BatchRegisterEmployee {
     private String name;
     private String password;
+    private Integer gender;
     private String idCard;
 
     public BatchRegisterEmployee() {
@@ -30,6 +31,14 @@ public class BatchRegisterEmployee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
     public String getIdCard() {

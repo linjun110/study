@@ -8,6 +8,9 @@ import com.linjun.java.springMvcWeb.utils.SystemConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -30,11 +33,22 @@ public class EmployeeDal {
         }
     }
 
+    public static List<Employee> getAll() {
+        try{
+            String sql = "select * from employee";
+            logger.info("sql: " + sql);
+            return getEmployeeFromResultSet(dao.query(sql));
+        }catch (BusinessException e){
+            logger.error("Failed to get by id, reason:" + e.getMessage());
+        }
+        return new ArrayList<Employee>();
+    }
+
     public static Employee getById(String id) {
         try{
             String sql = "select * from employee where id='" + id + "'";
             logger.info("sql: " + sql);
-            return getEmployeeFromResultSet(dao.query(sql));
+            return getEmployeeFromResultSet(dao.query(sql)).get(0);
         }catch (BusinessException e){
             logger.error("Failed to get by id, reason:" + e.getMessage());
         }
@@ -45,33 +59,35 @@ public class EmployeeDal {
         try{
             String sql = "select * from employee where name='" + name + "'";
             logger.info("sql: " + sql);
-            return getEmployeeFromResultSet(dao.query(sql));
+            return getEmployeeFromResultSet(dao.query(sql)).get(0);
         }catch (BusinessException e){
             logger.error("Failed to get employee by name, reason:" + e.getMessage());
         }
         return null;
     }
 
-    private static Employee getEmployeeFromResultSet(ResultSet rs){
+    private static List<Employee> getEmployeeFromResultSet(ResultSet rs){
+        List<Employee> result = new ArrayList<Employee>();
         try{
-            if(!rs.next()) {
-                return null;
+            while(rs.next()) {
+                Employee employee = new Employee();
+                employee.setId(rs.getString("id"));
+                employee.setName(rs.getString("name"));
+                employee.setPassword(rs.getString("password"));
+                employee.setIdCard(rs.getString("idCard"));
+                employee.setGender(rs.getInt("gender"));
+                employee.setBirthday(rs.getLong("birthday"));
+                employee.setRole(rs.getString("role"));
+                employee.setEnabled(rs.getInt("enabled"));
+
+                result.add(employee);
             }
 
-            Employee employee = new Employee();
-            employee.setId(rs.getString("id"));
-            employee.setName(rs.getString("name"));
-            employee.setPassword(rs.getString("password"));
-            employee.setIdCard(rs.getString("idCard"));
-            employee.setGender(rs.getInt("gender"));
-            employee.setBirthday(rs.getLong("birthday"));
-            employee.setRole(rs.getString("role"));
-            employee.setEnabled(rs.getInt("enabled"));
-            return employee;
+            return result;
         }catch (SQLException e2){
             logger.error("Failed to get employee by name, reason:" + e2.getMessage());
         }
-        return null;
+        return result;
     }
 
     public static void create(Employee employee) {

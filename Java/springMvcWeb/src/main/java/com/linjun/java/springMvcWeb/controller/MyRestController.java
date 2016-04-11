@@ -4,7 +4,7 @@ import com.linjun.java.springMvcWeb.bo.BatchRegisterEmployee;
 import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.bo.JsonResult;
 import com.linjun.java.springMvcWeb.dal.EmployeeDal;
-import com.linjun.java.springMvcWeb.utils.CommonUtil;
+import com.linjun.java.springMvcWeb.helpers.EmployeeHelper;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -15,8 +15,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Date;
-
-//import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  * Created by linjun on 16/4/7.
@@ -47,15 +45,15 @@ public class MyRestController {
                 logger.info(e.getName());
                 Employee t = new Employee();
 
-                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-                t.setId(CommonUtil.genUUID());
-                t.setName(e.getName());
-                t.setPassword(passwordEncoder.encode(e.getPassword()));
-                t.setIdCard(e.getIdCard());
-                t.setGender(1);
-                t.setBirthday(new Date().getTime());
-                t.setRole("ROLE_ADMIN");
-                t.setEnabled(1);
+                Date d = new Date();
+                String ds = d.getYear()+"-"+d.getMonth()+"-"+d.getDate();
+                EmployeeHelper.create(
+                    e.getName(),
+                    e.getPassword(),
+                    e.getIdCard(),
+                    e.getGender(),
+                    ds,
+                    "ROLE_ADMIN");
                 EmployeeDal.create(t);
             }
         }catch (Exception ex){

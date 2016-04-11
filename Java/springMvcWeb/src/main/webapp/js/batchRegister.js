@@ -3,7 +3,8 @@ $(document).ready(function(){
     var container = document.getElementById("jsoneditor");
     var options = {
         mode: 'code',
-        modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+        //modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+        modes: ['code'], // allowed modes
         onError: function (err) {
           alert(err.toString());
         },
@@ -17,7 +18,7 @@ $(document).ready(function(){
     var container2 = document.getElementById("jsoneditor2");
     var options2 = {
         mode: 'tree',
-        modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+        modes: ['form', 'text', 'tree', 'view'], // allowed modes
         onError: function (err) {
           alert(err.toString());
         },
@@ -31,6 +32,7 @@ $(document).ready(function(){
     var json = [{
             "name": "",
             "password": "",
+            "gender": 0,
             "idCard": ""
         }];
     editor.set(json);

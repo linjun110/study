@@ -2,6 +2,7 @@ package com.linjun.java.springMvcWeb.controller;
 
 import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.dal.EmployeeDal;
+import com.linjun.java.springMvcWeb.helpers.EmployeeHelper;
 import com.linjun.java.springMvcWeb.utils.DateUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -30,6 +31,7 @@ public class MyController {
 
     @RequestMapping("/")
     private String home(){
+        //TODO: research, why access / doesn't go here.
         return "forward:/index";
     }
 
@@ -41,6 +43,7 @@ public class MyController {
                 modelMap.addAttribute("name", cookies[i].getValue());
             }
         }
+
         return "index";
     }
 }
