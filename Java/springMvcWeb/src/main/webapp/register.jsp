@@ -14,7 +14,7 @@
                 </div>
                 <div id="main" class="col-sm-4">
                     <div class="well">
-                        <form action="addUser" method="post" commandName="employee" role="form">
+                        <form action="registerEmployee" method="post" commandName="employee" role="form">
                             <fieldset>
                                 <legend><i class="fa fa-lock"></i>Register</legend>
                                 <div class="form-group">

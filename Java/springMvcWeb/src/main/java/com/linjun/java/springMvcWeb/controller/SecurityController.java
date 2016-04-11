@@ -37,24 +37,21 @@ public class SecurityController {
     }
 
     @RequestMapping("/register")
-    private String register(){
-        logger.info("register");
+    private String registerPage(){
         return "register";
     }
 
     @RequestMapping("/adminBatchRegister")
-    private String batchRegister() {
-        logger.info("batchRegister");
+    private String batchRegisterPage() {
         return "batchRegister";
     }
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    private String addUser(@RequestParam(value="username", required=true) String username,
+    @RequestMapping(value = "/registerEmployee", method = RequestMethod.POST)
+    private String registerEmployee(@RequestParam(value="username", required=true) String username,
                            @RequestParam(value="password", required=true) String password,
                            @RequestParam(value="idCard", required=true) String idCard,
                            @RequestParam(value="gender", required=true) Integer gender,
                            @RequestParam(value="birthday", required=true) String birthday){
-        logger.info("addUser");
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         Employee e = new Employee(username,

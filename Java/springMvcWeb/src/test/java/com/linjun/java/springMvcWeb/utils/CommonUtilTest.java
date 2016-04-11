@@ -1,30 +1,21 @@
 package com.linjun.java.springMvcWeb.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.linjun.java.springMvcWeb.bo.BatchEmployeeBO;
-import com.linjun.java.springMvcWeb.bo.Employee;
+import com.linjun.java.springMvcWeb.bo.BatchRegisterEmployee;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
-
-import org.easymock.EasyMock;
-
-import java.util.Date;
-import org.apache.commons.lang.StringEscapeUtils;
+import static org.junit.Assert.*;
 
 import static org.easymock.EasyMock.anyObject;
-import static org.easymock.EasyMock.capture;
 import static org.easymock.EasyMock.eq;
-import static org.easymock.EasyMock.expect;
-import static org.junit.Assert.*;
 import static org.powermock.api.easymock.PowerMock.createMock;
-import static org.powermock.api.easymock.PowerMock.expectLastCall;
 import static org.powermock.api.easymock.PowerMock.expectNew;
-import static org.powermock.api.easymock.PowerMock.replay;
-import static org.powermock.api.easymock.PowerMock.verify;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Date;
 
 /**
  * Created by linjun on 16/4/8.
@@ -76,12 +67,11 @@ public class CommonUtilTest {
 
     @Test
     public void unescape(){
-        String a = "[{\"name\":\"linjun\",\"pw\":\"pw\",\"idCard\":\"12345678\"},{\"name\":\"lily\",\"pw\":\"pw\",\"idCard\":\"12345679\"}]";
+        String a = "[{\"name\":\"linjun\",\"password\":\"pw\",\"idCard\":\"12345678\"},{\"name\":\"lily\",\"password\":\"pw\",\"idCard\":\"12345679\"}]";
         ObjectMapper mapper = new ObjectMapper();
         try{
-            BatchEmployeeBO[] jsonToArray = mapper.readValue(a, BatchEmployeeBO[].class);
+            BatchRegisterEmployee[] jsonToArray = mapper.readValue(a, BatchRegisterEmployee[].class);
 
-            logger.info("hah");
             logger.info(jsonToArray.length);
         }catch (Exception e){
             logger.info("exception");

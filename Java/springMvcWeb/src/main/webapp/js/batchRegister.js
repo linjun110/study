@@ -24,18 +24,14 @@ $(document).ready(function(){
         onModeChange: function (newMode, oldMode) {
           console.log('Mode switched from', oldMode, 'to', newMode);
         }
-      };
+    };
     var editor2 = new JSONEditor(container2, options2);
 
     // set json
     var json = [{
-            "name": "linjun",
-            "pw": "pw",
-            "idCard": "12345678"
-        },{
-            "name": "lily",
-            "pw": "pw",
-            "idCard": "12345679"
+            "name": "",
+            "password": "",
+            "idCard": ""
         }];
     editor.set(json);
     editor2.set(json);
@@ -57,7 +53,6 @@ $(document).ready(function(){
             type: "POST",
             url: "rest/adminRestBatchRegister",
             dataType: "json",
-            //contentType: "json",
             contentType: "application/json",
             data: JSON.stringify(data),
             success: function(){

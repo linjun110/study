@@ -37,7 +37,7 @@
                             </c:when>
 
                             <c:otherwise>
-                                Hi: ${pageContext.request.userPrincipal.name}
+                                谢天谢地你来啦: ${pageContext.request.userPrincipal.name}
                             </c:otherwise>
 
                         </c:choose>

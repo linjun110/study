@@ -1,6 +1,6 @@
 package com.linjun.java.springMvcWeb.controller;
 
-import com.linjun.java.springMvcWeb.bo.BatchEmployeeBO;
+import com.linjun.java.springMvcWeb.bo.BatchRegisterEmployee;
 import com.linjun.java.springMvcWeb.bo.Cat;
 import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.bo.JsonResult;
@@ -16,8 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Date;
 
 //import org.apache.commons.lang.StringEscapeUtils;
@@ -43,16 +41,16 @@ public class MyRestController {
         logger.info(modelJSON);
         ObjectMapper mapper = new ObjectMapper();
         try{
-            BatchEmployeeBO[] es = mapper.readValue(modelJSON, BatchEmployeeBO[].class);
+            BatchRegisterEmployee[] es = mapper.readValue(modelJSON, BatchRegisterEmployee[].class);
 
-            for(BatchEmployeeBO e: es){
+            for(BatchRegisterEmployee e: es){
                 logger.info(e.getName());
                 Employee t = new Employee();
 
                 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
                 t.setId(CommonUtil.genUUID());
                 t.setName(e.getName());
-                t.setPassword(passwordEncoder.encode(e.getPw()));
+                t.setPassword(passwordEncoder.encode(e.getPassword()));
                 t.setIdCard(e.getIdCard());
                 t.setGender(1);
                 t.setBirthday(new Date().getTime());

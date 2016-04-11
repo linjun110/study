@@ -50,7 +50,7 @@ public class EmployeeDal {
             Employee employee = new Employee();
             employee.setId(rs.getString("id"));
             employee.setName(rs.getString("name"));
-            employee.setPassword(rs.getString("pw"));
+            employee.setPassword(rs.getString("password"));
             employee.setIdCard(rs.getString("idCard"));
             employee.setGender(rs.getInt("gender"));
             employee.setBirthday(rs.getLong("birthday"));
@@ -66,7 +66,7 @@ public class EmployeeDal {
     // C
     public static void create(Employee employee) {
         try{
-            String sql = "insert into employee(id, name, pw, gender, birthday, idcard, role, enabled)" +
+            String sql = "insert into employee(id, name, password, gender, birthday, idcard, role, enabled)" +
                     " values(\"" + CommonUtil.genUUID() +
                     "\", \"" + employee.getName() +
                     "\", \"" + employee.getPassword() +
