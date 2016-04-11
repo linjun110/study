@@ -38,3 +38,6 @@ bootstrap-datepicker:
 bootstrap-jsoneditor:
     https://github.com/josdejong/jsoneditor
     http://www.bootcdn.cn/jsoneditor/readme/
+
+c3p0:
+    http://www.mchange.com/projects/c3p0/

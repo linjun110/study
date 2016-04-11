@@ -1,10 +1,8 @@
 package com.linjun.java.springMvcWeb.controller;
 
 import com.linjun.java.springMvcWeb.bo.BatchRegisterEmployee;
-import com.linjun.java.springMvcWeb.bo.Cat;
 import com.linjun.java.springMvcWeb.bo.Employee;
 import com.linjun.java.springMvcWeb.bo.JsonResult;
-import com.linjun.java.springMvcWeb.dal.CatDal;
 import com.linjun.java.springMvcWeb.dal.EmployeeDal;
 import com.linjun.java.springMvcWeb.utils.CommonUtil;
 import org.apache.log4j.LogManager;
@@ -27,12 +25,14 @@ import java.util.Date;
 public class MyRestController {
     private static Logger logger = LogManager.getLogger(MyRestController.class);
 
+    /*
     @RequestMapping(value = "/adminRestBatchRegister/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Cat getCat(@PathVariable int id) {
         logger.info("getCat");
         return CatDal.getCatById(id);
     }
+    */
 
     @RequestMapping(value = "/rest/adminRestBatchRegister", method = RequestMethod.POST, consumes = "application/json")
     public @ResponseBody
