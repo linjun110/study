@@ -49,7 +49,6 @@ public class DaoImpl extends AbstractBaseDao implements IDao {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             logger.warn("got exception when loading mysql jdbc.");
         }
     }
@@ -60,7 +59,6 @@ public class DaoImpl extends AbstractBaseDao implements IDao {
             st = (Statement) con.createStatement();
             logger.info("Connected to db.");
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             logger.warn("got exception when connecting to db.");
         }
     }

@@ -16,9 +16,7 @@ public class MyInterceptor implements HandlerInterceptor{
 
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-        // TODO Auto-generated method stub
         logger.debug("Pre Handler");
-        // TODO: validate login status, if not valid, should go to login
         // Return false will make request failed.
         return true;
     }
@@ -26,7 +24,6 @@ public class MyInterceptor implements HandlerInterceptor{
     public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-        // TODO Auto-generated method stub
         logger.debug("Post Handler");
 
     }
@@ -34,7 +31,6 @@ public class MyInterceptor implements HandlerInterceptor{
     public void afterCompletion(HttpServletRequest request,
                                 HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
-        // TODO Auto-generated method stub
         logger.debug("After completion");
 
     }

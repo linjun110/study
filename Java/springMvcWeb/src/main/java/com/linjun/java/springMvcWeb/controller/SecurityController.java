@@ -31,7 +31,7 @@ public class SecurityController {
         if (logout != null) {
             model.addObject("msg", "成功登出.");
         }
-        model.setViewName("index");
+        model.setViewName("login");
 
         return model;
     }
@@ -61,6 +61,6 @@ public class SecurityController {
                 birthday,
                 "ROLE_ADMIN");
 
-        return "redirect:/index";
+        return "redirect:/login";
     }
 }

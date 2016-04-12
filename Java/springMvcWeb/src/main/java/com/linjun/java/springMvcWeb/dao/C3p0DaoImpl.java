@@ -26,7 +26,6 @@ public class C3p0DaoImpl extends AbstractBaseDao implements IDao{
             con = C3P0DBConnectionManager.getConnection();
             st = (Statement) con.createStatement();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             logger.fatal("fail to get connection or create statement.");
         }
     }

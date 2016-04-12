@@ -1,10 +1,5 @@
-function logout() {
-    document.getElementById("logoutForm").submit();
-}
-
 $(document).ready(function(){
-    $("#register").click(function(){
-        window.location.href = "register"
+    $('.carousel').carousel({
+        interval: 2000
     });
-    $("#logout").click(logout);
 });

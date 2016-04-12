@@ -10,169 +10,120 @@
 <!DOCTYPE html>
 <html>
     <my-taglib:header />
-    <style>
-    .password{
-        width: 140px;
-        word-wrap: break-word;
-        word-break: break-all;
-    }
-    </style>
+    <link rel="stylesheet" href='css/index.css' />
+    <link rel="stylesheet" href='css/mop.css' />
     <body>
         <div class="container body-container">
-            <div class="row">
-                <div id="main" class="col-sm-3">
-                    <div class="well">
-
-                        <c:choose>
-                            <c:when test="${pageContext.request.userPrincipal.name == null}">
-                                <form action="<c:url value='/auth/login_check?targetUrl=${targetUrl}' />" method="post">
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <label for="username">姓名</label>
-                                            <input type="text" id="username" name="username" value="<c:out value="${name}"></c:out>" class="form-control"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">密码</label>
-                                            <input type="password" id="password" name="password" class="form-control" />
-                                        </div>
-                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-sign-in"></i>登录
-                                        </button>
-                                        <span class="btn btn-success" id="register">
-                                            <i class="fa fa-sign-in"></i>注册
-                                        </span>
-                                    </fieldset>
-                                </form>
-                            </c:when>
-
-                            <c:otherwise>
-                                谢天谢地你来啦: ${pageContext.request.userPrincipal.name}
-                            </c:otherwise>
-
-                        </c:choose>
-                        <c:if test="${not empty error}">
-                            <div class="error">${error}</div>
-                        </c:if>
-                        <c:if test="${not empty msg}">
-                            <div class="msg">${msg}</div>
-                        </c:if>
-
-                        <c:url value="/j_spring_security_logout" var="logoutUrl" />
-                        <form action="${logoutUrl}" method="post" id="logoutForm">
-                            <input type="hidden" name="${_csrf.parameterName}"
-                                value="${_csrf.token}" />
-                        </form>
-                    </div>
+            <div class="row" style="background-image: url('images/title_bg.jpg');">
+                <div class="col-sm-3">
                 </div>
                 <div id="main" class="col-sm-6">
-                    <h3>
-                        <i class="fa fa-long-arrow-left"></i>
-                        Cookies
-                    </h3>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>name</th>
-                                <th class="password">password</th>
-                                <th>idcard</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <%
-                            List<Employee> employees = EmployeeHelper.get();
-                            for(Employee e: employees){
-                        %>
-                            <tr>
-                                <td><strong>
-                        <%=
-                            e.getId()
-                        %>
-                                </strong></td>
-                                <td>
-                        <%=
-                            e.getName()
-                        %>
-                                </td>
-                                <td class="password">
-                        <%=
-                            e.getPassword()
-                        %>
-                                </td>
-                                <td>
-                        <%=
-                            e.getIdCard()
-                        %>
-                                </td>
-                            </tr>
-                        <%
-                            }
-                        %>
-                        </tbody>
-                    </table>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Key</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="cookies" items="${cookie}">
-                            <tr>
-                                <td><strong><c:out value="${cookies.key}"/></strong></td>
-                                <td><code><c:out value="${cookies.value.value}"/></code></td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                    <div id="login-users-help" class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <span class="label label-success">note</span>
-                                Just for debug<br/>
-                                <code class="console">$ ./desploy.sh</code>
-                            </p>
-                        </div>
+                    <div id="search">
+                        <input type="text" name="q" class="" id="search-box" placeholder="请输入要搜索的游戏" autocomplete="off" />
+                        <input type="submit" class="" id="search-box-submit" value/>
                     </div>
                 </div>
-                <div id="sidebar" class="col-sm-3">
-                    <div class="section about">
-                        <div class="well well-lg">
-                            <p>
-                                app_description
-                            </p>
-                            <p>
-                                more_information
-                            </p>
-                        </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div id="bigMenu" class="row">
+                <div class="col-sm-2">
+                    <div class="game_rec_l">
+                        <ul>
+                            <li class="p1">
+                                <h3><a>p1</a></h3>
+                            </li>
+                            <li class="p2">
+                                <h3><a>p2</a></h3>
+                            </li>
+                            <li class="p3">
+                                <h3><a>p3</a></h3>
+                            </li>
+                            <li class="p4">
+                                <h3><a>p4</a></h3>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="section source-code">
-                        <p>
-                            Click on this button to show <strong>Model</strong>
-                        </p>
-                        <button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#sourceCodeModal">
-                          <i class="fa fa-cogs"></i> Show Modal
-                        </button>
-
-                        <div class="modal fade" id="sourceCodeModal" tabindex="-1" aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        <h4 class="modal-title"><i class="fa fa-code"></i> Source code used to render this page</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h3>Controller code<small class="pull-right"><a href="subl://open?url=file:///Users/linjun/symfony_demo/src/AppBundle/Controller/SecurityController.php&amp;line=29" title="Click to open this file" class="file_link"><abbr title="/Users/linjun/symfony_demo/src">src</abbr>/AppBundle/Controller/SecurityController.php at line 29</a></small></h3>
-                                        <span class="hljs-comment"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div id="main" class="col-sm-10">
+                    <div class="game_rec_r">
+                        <ul>
+                            <li>
+                                <b class="hot">热门游戏</b>
+                                <a>梦幻传奇</a>
+                                <a>我的世界</a>
+                            </li>
+                            <li>
+                                <b class="zt">游戏专题</b>
+                                <a>奇迹暖暖</a>
+                                <a>刀塔来了</a>
+                            </li>
+                            <li>
+                                <b class="hj">游戏合辑</b>
+                                <a>日式RPG</a>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="myCarousel" class="carousel slide">
+                       <!-- 轮播（Carousel）指标 -->
+                       <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                       </ol>
+                       <!-- 轮播（Carousel）项目 -->
+                       <div class="carousel-inner">
+                          <div class="item active">
+                             <img src="images/meow.jpg" alt="First slide">
+                             <div class="carousel-caption">标题 1</div>
+                          </div>
+                          <div class="item">
+                             <img src="images/nakoruru.gif" alt="Second slide">
+                             <div class="carousel-caption">标题 2</div>
+                          </div>
+                          <div class="item">
+                             <img src="images/meow.jpg" alt="Third slide">
+                             <div class="carousel-caption">标题 3</div>
+                          </div>
+                       </div>
+                       <!-- 轮播（Carousel）导航 -->
+                       <a class="carousel-control left" href="#myCarousel"
+                          data-slide="prev">&lsaquo;</a>
+                       <a class="carousel-control right" href="#myCarousel"
+                          data-slide="next">&rsaquo;</a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- extract to mop view -->
+                    <div class="mop">
+                        <div class="head">
+                            <a class="link">More</a>
+                            <strong class="spec">Spec</strong>
+                        </div>
+                        <ul class="contents">
+                            <li class="content">
+                                <a class="image">
+                                    <img src='images/meow.jpg'/>
+                                </a>
+                                <p class="title">
+                                    <a>
+                                        This is title
+                                    </a>
+                                </p>
+                                <a class="brief">
+                                    <p>
+                                        This is brief
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
                 </div>
             </div>
         </div>

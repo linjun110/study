@@ -39,5 +39,8 @@ bootstrap-jsoneditor:
     https://github.com/josdejong/jsoneditor
     http://www.bootcdn.cn/jsoneditor/readme/
 
+bootstrap-carousel:
+    http://www.runoob.com/bootstrap/bootstrap-carousel-plugin.html
+
 c3p0:
     http://www.mchange.com/projects/c3p0/
