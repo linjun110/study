@@ -1,3 +1,24 @@
+body {
+    background-color: #f1f2f3;
+}
+
+.contentWrapper {
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #cdcdcd;
+}
+.contents {
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    list-style: none;
+    padding: 0px;
+}
+
+.row{
+    margin-bottom: 5px;
+}
+
 .error {
     padding: 15px;
     margin-top: 5px;
