@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-4">
 
-                    <my-taglib:head_style_1 head="head" link="link" />
+                    <my-taglib:head_style_1 style_bg_color="#ff0000" head="head" link="link" />
                     <div class="contentWrapper">
                         <ul class="contents">
                             <my-taglib:li_style_1 />
@@ -38,6 +38,14 @@
                 </div>
                 <div class="col-sm-4">
                     <my-taglib:head_style_1 head="head" link="link" />
+                    <div class="contentWrapper">
+                        <ul class="contents">
+                            <my-taglib:li_style_3 image_src="images/meow.jpg" title="title" brief="brief" />
+                        </ul>
+                    </div>
+                    <my-taglib:tail_style_1 />
+
+                    <my-taglib:head_style_1 style_bg_color="#adcded" head="head" link="link" />
                     <div class="contentWrapper">
                         <ul class="contents">
                             <my-taglib:li_style_3 image_src="images/meow.jpg" title="title" brief="brief" />
