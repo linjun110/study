@@ -46,4 +46,10 @@ public class MyController {
 
         return "index";
     }
+
+    @RequestMapping("/sap")
+    private String sapPage(){
+        logger.info("access sap page");
+        return "sap";
+    }
 }

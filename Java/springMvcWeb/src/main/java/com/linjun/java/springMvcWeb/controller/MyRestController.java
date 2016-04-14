@@ -14,6 +14,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Date;
 
 /**
@@ -54,11 +57,35 @@ public class MyRestController {
                     e.getGender(),
                     ds,
                     "ROLE_ADMIN");
-                EmployeeDal.create(t);
+                // TODO: Remove this if nothing wrong
+                //EmployeeDal.create(t);
             }
         }catch (Exception ex){
 
         }
         return new JsonResult("OK", "success");
+    }
+
+    @RequestMapping(value = "/rest/adminSendCmd", method = RequestMethod.POST, consumes = "application/json")
+    public @ResponseBody
+    JsonResult sendCmd(@RequestBody String modelJSON) {
+        // TODO: launch a independent process
+        // Beware: it's synchronization call, need consider the performance issue.
+        String s = "";
+        try {
+            Runtime runtime = Runtime.getRuntime();
+            Process process = runtime.exec("java -jar /Users/linjun/study/Java/javaTest/target/javaTest-1.0-SNAPSHOT.jar");
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()));
+            while((s=bufferedReader.readLine()) != null) {
+                logger.info("Cmd output: " + s);
+            }
+            process.waitFor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
+        }
+        return new JsonResult("OK", s);
     }
 }

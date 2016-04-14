@@ -27,8 +27,8 @@
                     <my-taglib:head_style_1 style_bg_color="#ff0000" head="head" link="link" />
                     <div class="contentWrapper">
                         <ul class="contents">
-                            <my-taglib:li_style_1 />
-                            <my-taglib:li_style_3 image_src="images/meow.jpg" title="title" brief="brief" />
+                            <my-taglib:li_style_1 link="http://tt.mop.com/15387399.html" img_src="http://i1.mopimg.cn/img/www-admin/2015-12/468/20151221141010856.jpg80x60.jpg" title="【猫扑影视周刊】专访杨婷" text="【猫扑影视周刊】第19期专访《我的妹妹安娜》导演杨婷" />
+                            <my-taglib:li_style_3 image_src="images/maotouying.jpeg" title="呵欠~" text="我是超级萌喵么么哒>_<" />
                         </ul>
                     </div>
                     <my-taglib:tail_style_1 />
@@ -40,15 +40,15 @@
                     <my-taglib:head_style_1 head="head" link="link" />
                     <div class="contentWrapper">
                         <ul class="contents">
-                            <my-taglib:li_style_3 image_src="images/meow.jpg" title="title" brief="brief" />
+                            <my-taglib:li_style_3 image_src="images/dog2.jpg" title="呵欠~" text="我是超级萌喵么么哒>_<" />
                         </ul>
                     </div>
                     <my-taglib:tail_style_1 />
 
-                    <my-taglib:head_style_1 style_bg_color="#adcded" head="head" link="link" />
+                    <my-taglib:head_style_1 style_bg_color="" head="head" link="link" />
                     <div class="contentWrapper">
                         <ul class="contents">
-                            <my-taglib:li_style_3 image_src="images/meow.jpg" title="title" brief="brief" />
+                            <my-taglib:li_style_3 image_src="images/meow.jpg" title="呵欠~" text="我是超级萌喵么么哒>_<" />
                         </ul>
                     </div>
                     <my-taglib:tail_style_1 />
@@ -57,9 +57,9 @@
                     <my-taglib:head_style_2 head="head" link="link" />
                     <div class="contentWrapper">
                         <ul class="contents">
-                            <my-taglib:li_style_1 />
-                            <my-taglib:li_style_2 spec="我又饿了" link="http://www.baidu.com"/>
-                            <my-taglib:li_style_3 image_src="images/meow.jpg" title="title" brief="brief" />
+                            <my-taglib:li_style_1 link="http://tt.mop.com/15387399.html" img_src="http://i1.mopimg.cn/img/www-admin/2015-12/468/20151221141010856.jpg80x60.jpg" title="【猫扑影视周刊】专访杨婷" text="【猫扑影视周刊】第19期专访《我的妹妹安娜》导演杨婷" />
+                            <my-taglib:li_style_2 text="我又饿了" link="http://www.baidu.com"/>
+                            <my-taglib:li_style_3 image_src="images/dog1.jpg" title="呵欠~" text="我是超级萌喵么么哒>_<" />
                         </ul>
                     </div>
                     <my-taglib:tail_style_1 />

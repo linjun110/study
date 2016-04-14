@@ -1,6 +1,6 @@
 <%@ attribute name="image_src" required="true" type="java.lang.String" description="image src" %>
 <%@ attribute name="title" required="true" type="java.lang.String" description="title" %>
-<%@ attribute name="brief" required="true" type="java.lang.String" description="brief" %>
+<%@ attribute name="text" required="true" type="java.lang.String" description="text" %>
 <style>
     li.style3{
         width: 280px;
@@ -15,7 +15,7 @@
 
     li.style3 a.image img{
         height: 160px;
-        weight: 280px;
+        width: 280px;
     }
 
     li.style3 p.title{
@@ -64,9 +64,9 @@
             ${title}
         </a>
     </p>
-    <a class="brief">
+    <a>
         <p>
-            ${brief}
+            ${text}
         </p>
     </a>
 </li>

@@ -61,12 +61,6 @@
                         <c:if test="${not empty msg}">
                             <div class="msg">${msg}</div>
                         </c:if>
-
-                        <c:url value="/j_spring_security_logout" var="logoutUrl" />
-                        <form action="${logoutUrl}" method="post" id="logoutForm">
-                            <input type="hidden" name="${_csrf.parameterName}"
-                                value="${_csrf.token}" />
-                        </form>
                     </div>
                 </div>
                 <div id="main" class="col-sm-8">
@@ -149,10 +143,7 @@
                     <div class="section about">
                         <div class="well well-lg">
                             <p>
-                                app_description
-                            </p>
-                            <p>
-                                more_information
+                                some information
                             </p>
                         </div>
                     </div>

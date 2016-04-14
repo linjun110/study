@@ -72,7 +72,7 @@
         </div>
     </body>
     <my-taglib:footer />
-    <script src="js/jsoneditor.min.js"></script>
+    <script src="js/libs/jsoneditor.min.js"></script>
     <script type='text/javascript' src='js/batchRegister.js'></script>
 </html>
 

@@ -39,6 +39,10 @@ bootstrap-jsoneditor:
     https://github.com/josdejong/jsoneditor
     http://www.bootcdn.cn/jsoneditor/readme/
 
+bootstrap-treeview:
+    https://github.com/jonmiles/bootstrap-treeview
+
+
 bootstrap-carousel:
     http://www.runoob.com/bootstrap/bootstrap-carousel-plugin.html
 
