@@ -46,5 +46,8 @@ bootstrap-treeview:
 bootstrap-carousel:
     http://www.runoob.com/bootstrap/bootstrap-carousel-plugin.html
 
+jquery-animate:
+    http://api.jquery.com/animate/
+
 c3p0:
     http://www.mchange.com/projects/c3p0/
