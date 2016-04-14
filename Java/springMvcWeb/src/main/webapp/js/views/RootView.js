@@ -14,12 +14,15 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify(data),
-                success: function(){
-                    console.log(arguments);
-                    alert("success");
+                success: function(data){
+                    if(data.status === "OK"){
+                        alert("独立进程命令输出: " + data.msg);
+                    }else{
+                        alert("错误");
+                    }
                 },
                 error: function(){
-                    alert("error");
+                    alert("错误");
                 }
             });
         },

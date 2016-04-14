@@ -69,16 +69,18 @@ public class MyRestController {
     @RequestMapping(value = "/rest/adminSendCmd", method = RequestMethod.POST, consumes = "application/json")
     public @ResponseBody
     JsonResult sendCmd(@RequestBody String modelJSON) {
-        // TODO: launch a independent process
-        // Beware: it's synchronization call, need consider the performance issue.
-        String s = "";
+        // TODO&FIXME: Beware: it's synchronization call, need consider the performance issue.
+        StringBuilder sb = new StringBuilder();
         try {
             Runtime runtime = Runtime.getRuntime();
+            // TODO&FIXME: bad practice, hard coded
             Process process = runtime.exec("java -jar /Users/linjun/study/Java/javaTest/target/javaTest-1.0-SNAPSHOT.jar");
             BufferedReader bufferedReader = new BufferedReader(
                     new InputStreamReader(process.getInputStream()));
+            String s = null;
             while((s=bufferedReader.readLine()) != null) {
                 logger.info("Cmd output: " + s);
+                sb.append(s);
             }
             process.waitFor();
         } catch (IOException e) {
@@ -86,6 +88,6 @@ public class MyRestController {
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
-        return new JsonResult("OK", s);
+        return new JsonResult("OK", sb.toString());
     }
 }
