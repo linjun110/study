@@ -5,6 +5,8 @@ import com.linjun.java.springMvcWeb.webServer.bo.JsonResult;
 import com.linjun.java.springMvcWeb.dal.bo.Employee;
 import com.linjun.java.springMvcWeb.dal.helpers.EmployeeHelper;
 import com.linjun.java.springMvcWeb.webServer.bo.SendCmdRequest;
+import com.linjun.java.springMvcWeb.webServer.bo.SendMsgRequest;
+import com.linjun.java.springMvcWeb.webServer.helpers.RabbitmqHelper;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -86,6 +88,22 @@ public class MyRestController {
             e.printStackTrace();
         } catch (InterruptedException e2) {
             e2.printStackTrace();
+        }
+        return new JsonResult("OK", sb.toString());
+    }
+
+    @RequestMapping(value = "/rest/adminSendMsg", method = RequestMethod.POST, consumes = "application/json")
+    public @ResponseBody
+    JsonResult sendMsg(@RequestBody String modelJSON) {
+        logger.info(modelJSON);
+        ObjectMapper mapper = new ObjectMapper();
+        StringBuilder sb = new StringBuilder();
+        try {
+            SendMsgRequest requestBo = mapper.readValue(modelJSON, SendMsgRequest.class);
+            logger.info("Msg: " + requestBo.getMsg());
+            RabbitmqHelper.send(requestBo.getMsg());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return new JsonResult("OK", sb.toString());
     }

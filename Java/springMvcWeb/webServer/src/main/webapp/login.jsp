@@ -33,7 +33,7 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label for="username">姓名</label>
-                                            <input type="text" id="username" name="username" value="<c:out value="${name}"></c:out>" class="form-control"/>
+                                            <input type="text" autofocus id="username" name="username" value="<c:out value="${name}"></c:out>" class="form-control"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">密码</label>

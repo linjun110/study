@@ -37,6 +37,14 @@ then
     mysql.server start
 fi
 
+# start rabbitmq if not started
+RABBITMQ_STARTED=`ps aux | grep rabbitmq | grep "erlang"`
+if [ -z "$RABBITMQ_STARTED" ]
+then
+    echo "=== Rabbit mq NOT stared, starting ... ===";
+    rabbitmq-server
+fi
+
 # start tomcat if not started
 CATALINA_STARTED=`ps aux | grep tomcat | grep "org.apache.catalina.startup.Bootstrap start"`
 if [ -z "$CATALINA_STARTED" ]

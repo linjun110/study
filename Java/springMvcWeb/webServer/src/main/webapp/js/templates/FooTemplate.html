@@ -5,7 +5,6 @@
     <div class="col-sm-6">
         <div class="well">
             <span class="label label-danger">Hi: <%= name %></span>
-            </button>
             <button class="btn btn-success sendCmd">
                 发命令给后端运行独立进程
             </button>
@@ -16,6 +15,13 @@
             <br>
             <span class="label label-danger">注意</span>
             只是好玩, 实际项目千万别这么做
+        </div>
+        <div class="well">
+            <button class="btn btn-success sendMsg">
+                发命令给RabbitMQ
+            </button>
+            <br>
+            <input type="text" class="msgContent" value="" placeholder="输入消息" style="width: 100%; margin-top:10px;"/>
         </div>
     </div>
     <div class="col-sm-3">

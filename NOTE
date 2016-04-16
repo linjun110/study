@@ -3,6 +3,7 @@ Install steps:
 1. zookeeper, kafka, mysql, mongodb, redis
 2. php-zookeeper, php-kafka, php-mongo
 3. symfony new my_project_2_8 2.8
+4. rabbitmq
 
 
 Dependencies:
@@ -28,6 +29,14 @@ infrastructures:
         usage:
             start server: mongod --config /usr/local/etc/mongod.conf
             connect to server: mongo
+
+    rabbitmq
+        install: brew install rabbitmq
+        ref: 
+            https://www.rabbitmq.com/
+            https://www.rabbitmq.com/tutorials/tutorial-one-java.html
+        usage:
+            rabbitmq-server
 
     redis
         install: brew install redis

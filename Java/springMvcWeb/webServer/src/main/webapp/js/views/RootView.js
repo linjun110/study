@@ -4,7 +4,8 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
         template: _.template(Template),
 
         events:{
-			"click .sendCmd": "_sendCmdHandler"
+			"click .sendCmd": "_sendCmdHandler",
+			"click .sendMsg": "_sendMsgHandler"
         },
         _sendCmdHandler: function(){
             var that = this;
@@ -20,6 +21,30 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
                 success: function(data){
                     if(data.status === "OK"){
                         alert("独立进程命令输出: " + data.msg);
+                    }else{
+                        alert("错误");
+                    }
+                },
+                error: function(){
+                    alert("错误");
+                }
+            });
+        },
+
+        _sendMsgHandler: function(){
+            var that = this;
+            var data = {
+                msg: that.$(".msgContent").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "rest/adminSendMsg",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function(data){
+                    if(data.status === "OK"){
+                        alert("成功");
                     }else{
                         alert("错误");
                     }
@@ -50,18 +75,29 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
                 href: "#node-1",
                 selectable: true,
                 state: {
-                   checked: true,
+                   checked: false,
                    disabled: false,
                    expanded: true,
-                   selected: true
+                   selected: false
                 },
                 tags: ['available'],
                 nodes: [
                   {
                     text: "Child 1",
+                    state: {
+                       checked: false,
+                       disabled: false,
+                       expanded: true,
+                       selected: false
+                    },
                     nodes: [
                       {
-                        text: "Grandchild 1"
+                        text: "Grandchild 1",
+                        state: {
+                           checked: false,
+                           disabled: false,
+                           selected: true
+                        }
                       },
                       {
                         text: "Grandchild 2"
