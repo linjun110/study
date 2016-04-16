@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public class RabbitmqHelper {
     private static Logger logger = LogManager.getLogger(RabbitmqHelper.class);
-    private final static String QUEUE_NAME = "hello";
+    private final static String EXCHANGE_NAME = "helloExchange";
 
     static{
         recieve();
@@ -26,8 +26,7 @@ public class RabbitmqHelper {
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
 
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-            channel.basicPublish("", QUEUE_NAME, null, msg.getBytes());
+            channel.basicPublish(EXCHANGE_NAME, "bindKey1", null, msg.getBytes());
             logger.info(" [x] Sent '" + msg + "'");
 
             channel.close();
@@ -44,8 +43,10 @@ public class RabbitmqHelper {
             factory.setHost("localhost");
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
+            String queueName = channel.queueDeclare().getQueue();
 
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            channel.queueBind(queueName, EXCHANGE_NAME, "bindKey2");
+
             logger.info(" [*] Waiting for messages.");
 
             Consumer consumer = new DefaultConsumer(channel) {
@@ -56,7 +57,7 @@ public class RabbitmqHelper {
                     logger.info(" [x] Received '" + message + "'");
                 }
             };
-            channel.basicConsume(QUEUE_NAME, true, consumer);
+            channel.basicConsume(queueName, true, consumer);
         }catch(TimeoutException e){
             logger.error("connect to rabbit mq time out");
         }catch(IOException e2){
