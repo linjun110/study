@@ -1,11 +1,8 @@
 package com.linjun.java.springMvcWeb.webServer.controller;
 
-import com.linjun.java.springMvcWeb.webServer.bo.BatchRegisterEmployee;
-import com.linjun.java.springMvcWeb.webServer.bo.JsonResult;
+import com.linjun.java.springMvcWeb.webServer.bo.*;
 import com.linjun.java.springMvcWeb.dal.bo.Employee;
 import com.linjun.java.springMvcWeb.dal.helpers.EmployeeHelper;
-import com.linjun.java.springMvcWeb.webServer.bo.SendCmdRequest;
-import com.linjun.java.springMvcWeb.webServer.bo.SendMsgRequest;
 import com.linjun.java.springMvcWeb.webServer.helpers.RabbitmqHelper;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -13,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import redis.clients.jedis.Jedis;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,9 +40,9 @@ public class MyRestController {
         logger.info(modelJSON);
         ObjectMapper mapper = new ObjectMapper();
         try{
-            BatchRegisterEmployee[] es = mapper.readValue(modelJSON, BatchRegisterEmployee[].class);
+            BatchRegisterEmployeeRequest[] es = mapper.readValue(modelJSON, BatchRegisterEmployeeRequest[].class);
 
-            for(BatchRegisterEmployee e: es){
+            for(BatchRegisterEmployeeRequest e: es){
                 logger.info(e.getName());
                 Employee t = new Employee();
 
@@ -102,6 +100,41 @@ public class MyRestController {
             SendMsgRequest requestBo = mapper.readValue(modelJSON, SendMsgRequest.class);
             logger.info("Msg: " + requestBo.getMsg());
             RabbitmqHelper.send(requestBo.getMsg());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new JsonResult("OK", sb.toString());
+    }
+
+    @RequestMapping(value = "/rest/adminSave2Redis", method = RequestMethod.POST, consumes = "application/json")
+    public @ResponseBody
+    JsonResult save2Redis(@RequestBody String modelJSON) {
+        logger.info(modelJSON);
+        ObjectMapper mapper = new ObjectMapper();
+        StringBuilder sb = new StringBuilder();
+        try {
+            Save2RedisRequest requestBo = mapper.readValue(modelJSON, Save2RedisRequest.class);
+            logger.info("Key: " + requestBo.getKey());
+            logger.info("Value: " + requestBo.getValue());
+            Jedis jedis = new Jedis("localhost");
+            jedis.set(requestBo.getKey(), requestBo.getValue());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new JsonResult("OK", sb.toString());
+    }
+
+    @RequestMapping(value = "/rest/adminGetFromRedis", method = RequestMethod.POST, consumes = "application/json")
+    public @ResponseBody
+    JsonResult getFromRedis(@RequestBody String modelJSON) {
+        logger.info(modelJSON);
+        ObjectMapper mapper = new ObjectMapper();
+        StringBuilder sb = new StringBuilder();
+        try {
+            Save2RedisRequest requestBo = mapper.readValue(modelJSON, Save2RedisRequest.class);
+            logger.info("Key: " + requestBo.getKey());
+            Jedis jedis = new Jedis("localhost");
+            sb.append(jedis.get(requestBo.getKey()));
         } catch (IOException e) {
             e.printStackTrace();
         }

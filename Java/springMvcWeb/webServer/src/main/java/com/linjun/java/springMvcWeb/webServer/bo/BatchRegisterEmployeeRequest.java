@@ -3,15 +3,15 @@ package com.linjun.java.springMvcWeb.webServer.bo;
 /**
  * Created by linjun on 16/4/9.
  */
-public class BatchRegisterEmployee {
+public class BatchRegisterEmployeeRequest {
     private String name;
     private String password;
     private Integer gender;
     private String idCard;
 
-    public BatchRegisterEmployee() {
+    public BatchRegisterEmployeeRequest() {
     }
-    public BatchRegisterEmployee(String name, String password, String idCard){
+    public BatchRegisterEmployeeRequest(String name, String password, String idCard){
         this.name = name;
         this.password = password;
         this.idCard = idCard;
