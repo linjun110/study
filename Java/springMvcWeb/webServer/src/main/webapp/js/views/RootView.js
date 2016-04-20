@@ -98,6 +98,8 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
 		render: function () {
             var that = this;
 
+            this.$el.undelegate();
+
 			this.$el.html(this.template(this.model.toJSON()));
 
 			this.$(".tree").treeview({
@@ -105,6 +107,8 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
                 onhoverColor: "#cdcdcd",
                 enableLinks: true
             });
+
+            this.delegateEvents();
 		},
 
         // example to demo bootstrap tree view
@@ -116,7 +120,6 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
                 selectedIcon: "glyphicon glyphicon-stop",
                 color: "#000000",
                 backColor: "#FFFFFF",
-                href: "#node-1",
                 selectable: true,
                 state: {
                    checked: false,

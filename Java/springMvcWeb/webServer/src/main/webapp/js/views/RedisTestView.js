@@ -54,6 +54,8 @@ define(["backbone", "text!templates/RedisTestTemplate.html", "bootstrapTreeView"
 		render: function () {
             var that = this;
 
+            this.$el.undelegate();
+
 			this.$el.html(this.template(this.model.toJSON()));
 
 			this.$(".tree").treeview({
@@ -61,6 +63,8 @@ define(["backbone", "text!templates/RedisTestTemplate.html", "bootstrapTreeView"
                 onhoverColor: "#cdcdcd",
                 enableLinks: true
             });
+
+            this.delegateEvents();
 		},
 
         // example to demo bootstrap tree view
@@ -72,7 +76,6 @@ define(["backbone", "text!templates/RedisTestTemplate.html", "bootstrapTreeView"
                 selectedIcon: "glyphicon glyphicon-stop",
                 color: "#000000",
                 backColor: "#FFFFFF",
-                href: "#node-1",
                 selectable: true,
                 state: {
                    checked: false,
