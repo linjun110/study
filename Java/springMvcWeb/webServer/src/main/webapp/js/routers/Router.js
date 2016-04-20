@@ -5,7 +5,10 @@ define(['marionette','controllers/Controller'],function(marionette,Controller){
 		},
 		controller: null,
 		appRoutes: {
-			"": "action"
+			"": "actionSendCmd",
+			"routeSendCmd": "actionSendCmd",
+			"routeSendMsg": "actionSendMsg",
+			"routeRedis": "actionRedis",
 		}
 	});
 	return _router;

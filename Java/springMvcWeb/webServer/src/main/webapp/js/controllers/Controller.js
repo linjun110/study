@@ -1,4 +1,19 @@
-define(['backbone', 'marionette', 'views/RootView', 'models/FooModel'],function(Backbone, Marionette, RootView, FooModel){
+define(['backbone',
+    'marionette',
+    'views/RootView',
+    'views/ProcessTestView',
+    'views/RabbitMqTestView',
+    'views/RedisTestView',
+    'models/FooModel'
+    ],function(
+        Backbone,
+        Marionette,
+        RootView,
+        ProcessTestView,
+        RabbitMqTestView,
+        RedisTestView,
+        FooModel
+    ){
 	var _controller = Backbone.Marionette.Controller.extend({
 		app: null,
 		initialize: function(options){
@@ -12,17 +27,39 @@ define(['backbone', 'marionette', 'views/RootView', 'models/FooModel'],function(
 				console.log("content_region close:",view);
 			});
 		},
-		action: function () {
+
+		actionSendCmd: function () {
 			var dmJson = {
                 name: "linjun"
 			};
 
 			var dm = new FooModel(dmJson);
 
-			var _view = new RootView({model: dm});
+			var _view = new ProcessTestView({model: dm});
 			_view.render();
+		},
 
-		}
+		actionSendMsg: function () {
+			var dmJson = {
+                name: "linjun"
+			};
+
+			var dm = new FooModel(dmJson);
+
+			var _view = new RabbitMqTestView({model: dm});
+			_view.render();
+		},
+
+		actionRedis: function () {
+			var dmJson = {
+                name: "linjun"
+			};
+
+			var dm = new FooModel(dmJson);
+
+			var _view = new RedisTestView({model: dm});
+			_view.render();
+		},
 	});
 	return _controller;
 });

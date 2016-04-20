@@ -42,7 +42,7 @@ REDIS_STARTED=`ps aux | grep redis | grep "6379"`
 if [ -z "$REDIS_STARTED" ]
 then
     echo "=== Redis NOT stared, starting ... ===";
-    redis-server /usr/local/etc/redis.conf
+    redis-server /usr/local/etc/redis.conf &
 fi
 
 # start rabbitmq if not started
@@ -50,7 +50,7 @@ RABBITMQ_STARTED=`ps aux | grep rabbitmq | grep "erlang"`
 if [ -z "$RABBITMQ_STARTED" ]
 then
     echo "=== Rabbit mq NOT stared, starting ... ===";
-    rabbitmq-server
+    rabbitmq-server &
 fi
 
 # start tomcat if not started

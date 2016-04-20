@@ -1,34 +1,10 @@
-define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],function(Backbone, Template){
+define(["backbone", "text!templates/RabbitMqTestTemplate.html", "bootstrapTreeView"],function(Backbone, Template){
 	var view = Backbone.View.extend({
         el: "#pageContent",
         template: _.template(Template),
 
         events:{
-			"click .sendCmd": "_sendCmdHandler",
-			"click .sendMsg": "_sendMsgHandler",
-			"click .saveToRedis": "_saveToRedisHandler",
-			"click .getFromRedis": "_getFromRedisHandler"
-        },
-
-        _sendCmdHandler: function(){
-            var that = this;
-            var data = {
-                cmd: that.$(".cmd").val()
-            };
-            this._ajaxCall(
-                "rest/adminSendCmd",
-                data,
-                function(data){
-                    if(data.status === "OK"){
-                        alert("成功, 输出: " + data.msg);
-                    }else{
-                        alert("错误");
-                    }
-                },
-                function(){
-                    alert("错误");
-                }
-            );
+			"click .sendMsg": "_sendMsgHandler"
         },
 
         _sendMsgHandler: function(){
@@ -38,49 +14,6 @@ define(["backbone", "text!templates/FooTemplate.html", "bootstrapTreeView"],func
             };
             this._ajaxCall(
                 "rest/adminSendMsg",
-                data,
-                function(data){
-                    if(data.status === "OK"){
-                        alert("成功, 输出: " + data.msg);
-                    }else{
-                        alert("错误");
-                    }
-                },
-                function(){
-                    alert("错误");
-                }
-            );
-        },
-
-        _saveToRedisHandler: function(){
-            var that = this;
-            var data = {
-                key: that.$(".redisKey2Save").val(),
-                value: that.$(".redisValue2Save").val()
-            };
-            this._ajaxCall(
-                "rest/adminSave2Redis",
-                data,
-                function(data){
-                    if(data.status === "OK"){
-                        alert("成功, 输出: " + data.msg);
-                    }else{
-                        alert("错误");
-                    }
-                },
-                function(){
-                    alert("错误");
-                }
-            );
-        },
-
-        _getFromRedisHandler: function(){
-            var that = this;
-            var data = {
-                key: that.$(".redisKey2Get").val()
-            };
-            this._ajaxCall(
-                "rest/adminGetFromRedis",
                 data,
                 function(data){
                     if(data.status === "OK"){

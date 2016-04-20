@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-3">
+        <div class = "tree"></div>
+    </div>
+    <div class="col-sm-6">
+        <div class="well">
+            <span class="label label-danger">Hi: <%= name %></span>
+            <button class="btn btn-success sendCmd">
+                发命令给后端运行独立进程
+            </button>
+            <br>
+            <input type="text" class="cmd" value="" placeholder="输入命令" style="width: 100%; margin-top:10px;"/>
+            <span class="label label-primary">例子</span>
+            <code>java -jar /Users/linjun/study/Java/javaTest/target/javaTest-1.0-SNAPSHOT.jar</code>
+            <br>
+            <span class="label label-danger">注意</span>
+            只是好玩, 实际项目千万别这么做
+        </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+</div>
