@@ -39,4 +39,10 @@ public class MyController {
         logger.info("access adminSap page");
         return "adminSap";
     }
+
+    @RequestMapping("/css3animate")
+    private String css3animatePage(){
+        logger.info("access css3animate page");
+        return "css3animate";
+    }
 }
