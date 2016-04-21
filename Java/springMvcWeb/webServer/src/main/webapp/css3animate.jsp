@@ -9,6 +9,7 @@
 <html>
     <my-taglib:header />
     <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/css3animate.css">
     <body>
         <div class="container" id="pageContent">
             <div class="col-sm-3">
@@ -25,6 +26,31 @@
                 </div>
             </div>
             <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="container" id="pageContent">
+            <div class="col-sm-3">
+                <button id="step1" class="btn btn-success">
+                    show book
+                </button>
+                <br>
+                <button id="step2" class="btn btn-success">
+                    show video
+                </button>
+                <br>
+                <button id="step3" class="btn btn-success">
+                    show disc
+                </button>
+                <br>
+            </div>
+            <div class="col-sm-9">
+                <div id="holder">
+                    <div id="myTarget">
+                        <img id="book" src="images/book.png" />
+                        <img id="video" src="images/video.png" />
+                        <img id="disc" src="images/disc.png" />
+                    </div>
+                </div>
             </div>
         </div>
     </body>

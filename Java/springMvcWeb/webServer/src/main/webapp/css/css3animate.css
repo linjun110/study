@@ -1,0 +1,91 @@
+@keyframes bookClose
+{
+from {top: 50px; left:200px;}
+to {top: -200px; left: -200px;}
+}
+
+@-moz-keyframes bookClose /* Firefox */
+{
+from {top: 50px; left:200px;}
+to {top: -200px; left: -200px;}
+}
+
+@-webkit-keyframes bookClose /* Safari 和 Chrome */
+{
+from {top: 50px; left:200px;}
+to {top: -200px; left: -200px;}
+}
+
+@-o-keyframes bookClose /* Opera */
+{
+from {top: 50px; left:200px;}
+to {top: -200px; left: -200px;}
+}
+
+@keyframes bookOpen
+{
+from {top: -200px; left: -200px;}
+to {top: 50px; left:200px;}
+}
+
+@-moz-keyframes bookOpen /* Firefox */
+{
+from {top: -200px; left: -200px;}
+to {top: 50px; left:200px;}
+}
+
+@-webkit-keyframes bookOpen /* Safari 和 Chrome */
+{
+from {top: -200px; left: -200px;}
+to {top: 50px; left:200px;}
+}
+
+@-o-keyframes bookOpen /* Opera */
+{
+from {top: -200px; left: -200px;}
+to {top: 50px; left:200px;}
+}
+
+#myTarget img{
+    top: -200px;
+    left: -200px;
+}
+#myTarget img.off{
+    animation: bookClose .3s;
+    -moz-animation: bookClose .3s;	/* Firefox */
+    -webkit-animation: bookClose .3s;	/* Safari 和 Chrome */
+    -o-animation: bookClose .3s;	/* Opera */
+
+    top: -200px;
+    left:-200px;
+}
+#myTarget img.open{
+    animation: bookOpen .3s;
+    -moz-animation: bookOpen .3s;	/* Firefox */
+    -webkit-animation: bookOpen .3s;	/* Safari 和 Chrome */
+    -o-animation: bookOpen .3s;	/* Opera */
+
+    top: 50px;
+    left:200px;
+}
+
+#holder{
+    width: 100%;
+    height: 400px;
+    background-color: #BCD850;
+    overflow: hidden;
+}
+
+#holder img{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+}
+#myTarget{
+    position: relative;
+}
+
+button.btn{
+    width: 100px;
+    margin-bottom: 10px;
+}
