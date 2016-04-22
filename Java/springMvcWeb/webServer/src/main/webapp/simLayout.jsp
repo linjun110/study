@@ -20,7 +20,9 @@
                         </div>
                     </div>
                     <div id= "search-filter">
-                        <label> Search filter </label>
+                        <label> Search filter
+                        <a><i class="icon-question-sign"></i></a>
+                        </label>
                         <div class= "current-filters">
                             <div class= "filter-header">
                                 Some text
@@ -29,7 +31,7 @@
                             <hr>
                             <div class= "some-btn-wrapper">
                                 <button class="left-btn" title="left">left</button>
-                                <button class="right-btn">right</button>
+                                <button class="right-btn">X</button>
                             </div>
                         </div>
                     </div>

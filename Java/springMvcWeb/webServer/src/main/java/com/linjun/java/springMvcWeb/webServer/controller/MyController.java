@@ -51,4 +51,10 @@ public class MyController {
         logger.info("access simLayout page");
         return "simLayout";
     }
+
+    @RequestMapping("/3dbutton")
+    private String threedbuttonPage(){
+        logger.info("access 3dbutton page");
+        return "3dbutton";
+    }
 }

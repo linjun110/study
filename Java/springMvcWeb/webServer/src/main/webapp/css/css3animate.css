@@ -263,7 +263,7 @@
     position: relative;
 }
 
-button.btn{
+#pageContent button.btn{
     width: 100px;
     margin-bottom: 10px;
 }
