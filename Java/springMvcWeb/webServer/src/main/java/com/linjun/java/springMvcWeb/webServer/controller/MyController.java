@@ -45,4 +45,10 @@ public class MyController {
         logger.info("access css3animate page");
         return "css3animate";
     }
+
+    @RequestMapping("/simLayout")
+    private String simLayoutPage(){
+        logger.info("access simLayout page");
+        return "simLayout";
+    }
 }
