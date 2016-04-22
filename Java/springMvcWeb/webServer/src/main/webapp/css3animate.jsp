@@ -44,11 +44,17 @@
                 <br>
             </div>
             <div class="col-sm-9">
+                <div id="welcome">
+                </div>
                 <div id="holder">
-                    <div id="myTarget">
-                        <img id="book" src="images/book.png" />
-                        <img id="video" src="images/video.png" />
-                        <img id="disc" src="images/disc.png" />
+                    <div id="imageWrapper">
+                        <div id="anchor">
+                            <img id="book" class="" src="images/book.png" />
+                            <img id="video" class="" src="images/video.png" />
+                            <img id="disc" class="" src="images/disc.png" />
+                        </div>
+                    </div>
+                    <div id="textWrapper">
                     </div>
                 </div>
             </div>

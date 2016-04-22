@@ -1,78 +1,255 @@
-@keyframes bookClose
+@keyframes slideDownClose
 {
-from {top: 50px; left:200px;}
-to {top: -200px; left: -200px;}
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
 }
 
-@-moz-keyframes bookClose /* Firefox */
+@-moz-keyframes slideDownClose /* Firefox */
 {
-from {top: 50px; left:200px;}
-to {top: -200px; left: -200px;}
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
 }
 
-@-webkit-keyframes bookClose /* Safari 和 Chrome */
+@-webkit-keyframes slideDownClose /* Safari 和 Chrome */
 {
-from {top: 50px; left:200px;}
-to {top: -200px; left: -200px;}
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
 }
 
-@-o-keyframes bookClose /* Opera */
+@-o-keyframes slideDownClose /* Opera */
 {
-from {top: 50px; left:200px;}
-to {top: -200px; left: -200px;}
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
 }
 
-@keyframes bookOpen
+@keyframes slideDownOpen
 {
-from {top: -200px; left: -200px;}
-to {top: 50px; left:200px;}
+    from {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
 }
 
-@-moz-keyframes bookOpen /* Firefox */
+@-moz-keyframes slideDownOpen /* Firefox */
 {
-from {top: -200px; left: -200px;}
-to {top: 50px; left:200px;}
+    from {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
 }
 
-@-webkit-keyframes bookOpen /* Safari 和 Chrome */
+@-webkit-keyframes slideDownOpen /* Safari 和 Chrome */
 {
-from {top: -200px; left: -200px;}
-to {top: 50px; left:200px;}
+    from {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
 }
 
-@-o-keyframes bookOpen /* Opera */
+@-o-keyframes slideDownOpen /* Opera */
 {
-from {top: -200px; left: -200px;}
-to {top: 50px; left:200px;}
+    from {
+        -webkit-transform: translate3d(0, -400%, 0);
+        transform: translate3d(0, -400%, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
 }
 
-#myTarget img{
-    top: -200px;
-    left: -200px;
+.animated {
+    -webkit-animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
-#myTarget img.off{
-    animation: bookClose .3s;
-    -moz-animation: bookClose .3s;	/* Firefox */
-    -webkit-animation: bookClose .3s;	/* Safari 和 Chrome */
-    -o-animation: bookClose .3s;	/* Opera */
 
-    top: -200px;
-    left:-200px;
+.slideDownOpen{
+    -moz-animation-name: slideDownOpen;	/* Firefox */
+    -o-animation-name: slideDownOpen;	/* Opera */
+    -webkit-animation-name: slideDownOpen;
+    animation-name: slideDownOpen;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
-#myTarget img.open{
-    animation: bookOpen .3s;
-    -moz-animation: bookOpen .3s;	/* Firefox */
-    -webkit-animation: bookOpen .3s;	/* Safari 和 Chrome */
-    -o-animation: bookOpen .3s;	/* Opera */
 
-    top: 50px;
-    left:200px;
+.slideDownClose{
+    -moz-animation-name: slideDownClose;	/* Firefox */
+    -o-animation-name: slideDownClose;	/* Opera */
+    -webkit-animation-name: slideDownClose;
+    animation-name: slideDownClose;
+
+    -webkit-transform: translate3d(0, -400%, 0);
+    transform: translate3d(0, -400%, 0);
+}
+
+@keyframes minClose
+{
+    from {
+        height: 300px;
+    }
+    to {
+        height: 400px;
+    }
+}
+
+@-moz-keyframes minClose /* Firefox */
+{
+    from {
+        height: 300px;
+    }
+    to {
+        height: 400px;
+    }
+}
+
+@-webkit-keyframes minClose /* Safari 和 Chrome */
+{
+    from {
+        height: 300px;
+    }
+    to {
+        height: 400px;
+    }
+}
+
+@-o-keyframes minClose /* Opera */
+{
+    from {
+        height: 300px;
+    }
+    to {
+        height: 400px;
+    }
+}
+
+@keyframes minOpen
+{
+    from {
+        height: 400px;
+    }
+    to {
+        height: 300px;
+    }
+}
+
+@-moz-keyframes minOpen /* Firefox */
+{
+    from {
+        height: 400px;
+    }
+    to {
+        height: 300px;
+    }
+}
+
+@-webkit-keyframes minOpen /* Safari 和 Chrome */
+{
+    from {
+        height: 400px;
+    }
+    to {
+        height: 300px;
+    }
+}
+
+@-o-keyframes minOpen /* Opera */
+{
+    from {
+        height: 400px;
+    }
+    to {
+        height: 300px;
+    }
+}
+
+.minOpen{
+    -moz-animation-name: minOpen;	/* Firefox */
+    -o-animation-name: minOpen;	/* Opera */
+    -webkit-animation-name: minOpen;
+    animation-name: minOpen;
+
+    height: 300px;
+}
+
+.minClose{
+    -moz-animation-name: minClose;	/* Firefox */
+    -o-animation-name: minClose;	/* Opera */
+    -webkit-animation-name: minClose;
+    animation-name: minClose;
+
+    height: 400px;
+}
+
+#welcome{
+    width: 100%;
+    height: 400px;
+    background-color: #BCD850;
+    overflow: hidden;
 }
 
 #holder{
     width: 100%;
     height: 400px;
+    overflow: hidden;
+    display: none;
+}
+
+#holder #imageWrapper{
+    width: 100%;
+    height: 400px;
     background-color: #BCD850;
+    overflow: hidden;
+}
+
+#holder #imageWrapper.minClose{
+    height: 400px;
+}
+#holder #imageWrapper.minOpen{
+    height: 300px;
+}
+
+#holder #textWrapper{
+    width: 100%;
+    height: 0px;
+    background-color: #fff;
     overflow: hidden;
 }
 
@@ -81,7 +258,8 @@ to {top: 50px; left:200px;}
     width: 180px;
     height: 180px;
 }
-#myTarget{
+
+#anchor{
     position: relative;
 }
 
@@ -89,3 +267,19 @@ button.btn{
     width: 100px;
     margin-bottom: 10px;
 }
+
+#anchor #book{
+    top: 100px;
+    left: 200px;
+}
+
+#anchor #video{
+    top: 100px;
+    left: 230px;
+}
+
+#anchor #disc{
+    top: 100px;
+    left: 260px;
+}
+

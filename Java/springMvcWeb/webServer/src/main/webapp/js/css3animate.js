@@ -1,33 +1,41 @@
 $(document).ready(function(){
     $('#animateElem').addClass('animated bounceOutLeft');
 
+    // Define the effect to use.
+    $('#holder img').addClass('slideDownClose');
+    $('#imageWrapper').addClass('minClose');
+    $('#textWrapper').addClass('minClose');
 
-    window.cs = null;
+    // show welcome
+    $('#welcome').show();
+
+    var animationCache = {};
     $('#step1').click(function(){
-        if(window.cs){
-            cs.addClass('off');
-        }
-        window.cs = $('#book');
-        $('#myTarget img').removeClass('open');
-        $('#book').removeClass('off');
-        $('#book').addClass('open');
+        _navigateToElem('book', animationCache);
     });
+
     $('#step2').click(function(){
-        if(window.cs){
-            cs.addClass('off');
-        }
-        window.cs = $('#video');
-        $('#myTarget img').removeClass('open');
-        $('#video').removeClass('off');
-        $('#video').addClass('open');
+        _navigateToElem('video', animationCache);
+
+        $('#imageWrapper').removeClass('minClose').addClass('minOpen').addClass('animated');
     });
+
     $('#step3').click(function(){
-        if(window.cs){
-            cs.addClass('off');
-        }
-        window.cs = $('#disc');
-        $('#myTarget img').removeClass('open');
-        $('#disc').removeClass('off');
-        $('#disc').addClass('open');
+        _navigateToElem('disc', animationCache);
     });
+
 });
+
+function _navigateToElem(name, cache){
+    if(cache.prev){
+        cache.prev.addClass('slideDownClose');
+    }
+    cache.prev = $('#'+name);
+
+    // any action should hide the welcome.
+    $('#welcome').hide();
+
+    $('#holder').show();
+    $('#holder img').removeClass('slideDownOpen');
+    $('#'+name).removeClass('slideDownClose').addClass('slideDownOpen').addClass('animated');
+}
