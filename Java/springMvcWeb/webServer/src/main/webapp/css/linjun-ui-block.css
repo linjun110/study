@@ -1,0 +1,42 @@
+.block-style-1{
+    background-color: #fff;
+    margin-top: 8px;
+}
+
+.block-style-1 hr{
+    margin: 0px;
+}
+
+.block-style-1 .block-header{
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.block-style-1 .block-action{
+    float: right;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #777;
+    margin-right: 5px;
+}
+
+.block-style-1 .block-body{
+    padding: 4px;
+}
+
+.block-style-1 .block-body ul{
+    list-style: none;
+    padding: 0px;
+}
+.block-style-1 .block-body ul li{
+    padding-left: 5px;
+}
+.block-style-1 .block-body ul li a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #222;
+    display: block;
+}
+.block-style-1 .block-body ul a:hover{
+    background-color: #f2f8fa;
+}

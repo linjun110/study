@@ -1,0 +1,28 @@
+.linjun-tag{
+    background-color: #999;
+    border-radius: 4px;
+
+    line-height: 14px;
+    padding: 0px 4px;
+}
+
+.linjun-tag a{
+    color: #fff;
+    font-weight: bold;
+    font-size: 9px;
+    text-decoration: none;
+}
+
+.linjun-tag-issue{
+    background-color: #999;
+    border-radius: 4px;
+
+    line-height: 14px;
+}
+
+.linjun-tag-status-resolved{
+    background-color: #f89406;
+    border-radius: 4px;
+
+    line-height: 14px;
+}
