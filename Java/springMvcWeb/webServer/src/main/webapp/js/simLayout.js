@@ -1,8 +1,8 @@
 function adjustViewRight(){
     var center_width = parseInt($("#view-content-center .inner-container").css("width"), 10);
     var left_width = parseInt($("#view-content-left").css("width"), 10);
-    $("#view-content-right").css("margin-left", (center_width + left_width) + "px" );
-    $("#view-content-right").css("width", "calc(100% - " +(center_width + left_width) + "px)" );
+    $("#view-content-right .inner-container").css("left", (center_width + left_width) + "px" );
+    $("#view-content-right .inner-container").css("width", "calc(100% - " +(center_width + left_width) + "px)" );
 }
 
 $(document).ready(function(){

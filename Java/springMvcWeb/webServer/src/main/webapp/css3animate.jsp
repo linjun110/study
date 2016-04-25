@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <my-taglib:header />
-    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/libs/animate.min.css">
     <link rel="stylesheet" href="css/css3animate.css">
     <body>
         <div class="container" id="pageContent">
@@ -22,10 +22,18 @@
                     <a target="_blank" href="http://www.dowebok.com/98.html">1</a>
                 </div>
                 <div class="well">
+                    <span class="label label-primary">Animate.css 效果</span>
                     <div id="animateElem" style="font-size: 20px;color:#ff0000;">GOGOGO</div>
                 </div>
             </div>
             <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="container" id="pageContent">
+            <div class="col-sm-12">
+                <div class="well">
+                    <span class="label label-primary">自己实现的效果</span>
+                </div>
             </div>
         </div>
         <div class="container" id="pageContent">

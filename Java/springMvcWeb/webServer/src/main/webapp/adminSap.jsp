@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href='css/bootstrap-treeview.min.css' />
+    <link rel="stylesheet" href='css/libs/bootstrap-treeview.min.css' />
     <my-taglib:header />
     <body>
         <div class="container" id="pageContent">

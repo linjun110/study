@@ -13,6 +13,7 @@ footer{
     background-color: #fff;
 
     box-shadow: 3px 1px 3px rgba(0,0,0,0.15);
+    z-index: 3;
 }
 
 #view-content-left .inner-container{
@@ -57,6 +58,26 @@ footer{
 
 .filter-wrapper{
     margin: 8px 7px;
+}
+
+.search-input{
+    margin: 0px 7px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.search-input i{
+    position: absolute;
+    margin: 5px;
+}
+.search-input input{
+    padding-left: 20px;
+    border-radius: 4px;
+    width: 100%;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    background-color: #fff;
+    line-height: 24px;
 }
 
 .search-filter{
@@ -232,13 +253,18 @@ footer{
 }
 
 #view-content-right{
-    margin-left: 590px;
+}
+#view-content-right .inner-container{
     position: fixed;
     top: 54px;
     width: calc(100% - 590px);
-}
-#view-content-right .inner-container{
+    height: 100%;
     padding: 10px;
+    left: 590px;
+}
+#view-content-right .inner-container .content{
+    height: calc(100% - 54px);
+    overflow-y: auto;
 }
 #view-content-right .inner-container .content .header{
     background-color: #f6f7f8;
@@ -370,12 +396,26 @@ footer{
 .replier img{
     width: 50px;
     height: 50px;
+    border-radius: 4px;
 }
 
 .reply-content-wrapper{
     background-color: #f9f9f9;
     padding: 10px;
     margin-left: 80px;
+    position: relative;
+}
+.reply-content-wrapper::after{
+    content: "◆";
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    margin-top: -10px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    font-size: 20px;
+    color: #f9f9f9;
 }
 .reply-content-wrapper .reply-content-title{
     margin-bottom: 5px;

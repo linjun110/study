@@ -26,6 +26,9 @@
 .icon-email::before{
     content: "电子邮件"
 }
+.icon-search::before{
+    content: "找"
+}
 
 .icon-filled-square{
     display: inline-block;

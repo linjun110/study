@@ -13,6 +13,29 @@
     border-radius: 4px;
 }
 
+.linjun-btn.btn-white{
+    background-image: linear-gradient(to bottom, #fff, #e6e6e6);
+    background-repeat: repeat-x;
+    background-color: whitesmoke;
+
+    border: 1px solid #CCC;
+    border-color: rgba(0,0,0,0.15) rgba(0,0,0,0.15) rgba(0,0,0,0.25);
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+.linjun-btn.btn-white i{
+    color: #333;
+}
+.linjun-btn.btn-white:hover{
+    background-color: #53a853;
+    background-image: linear-gradient(to bottom, #60c160, #ff0000);
+}
+.linjun-btn.btn-white:active{
+    background-color: #53a853;
+    background-image: linear-gradient(to bottom, #60c160, #00ff00);
+    outline: none;
+}
+
 .linjun-btn.btn-green{
     background-image: linear-gradient(to bottom, #60c160, #53a853);
     background-repeat: repeat-x;

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <my-taglib:header />
-     <link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
+     <link href="css/libs/jsoneditor.min.css" rel="stylesheet" type="text/css">
      <style>
      div.convert-right {
          background: url(css/img/jsoneditor-icons.svg) 0 -48px;

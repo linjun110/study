@@ -57,4 +57,22 @@ public class MyController {
         logger.info("access 3dbutton page");
         return "3dbutton";
     }
+
+    @RequestMapping("/d3")
+    private String d3Page(){
+        logger.info("access d3 page");
+        return "d3";
+    }
+
+    @RequestMapping("/highChart")
+    private String highChartPage(){
+        logger.info("access highChart page");
+        return "highChart";
+    }
+
+    @RequestMapping("/svg")
+    private String svgPage(){
+        logger.info("access svg page");
+        return "svg";
+    }
 }

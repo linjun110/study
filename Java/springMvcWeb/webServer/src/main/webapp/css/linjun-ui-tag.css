@@ -15,14 +15,8 @@
 
 .linjun-tag-issue{
     background-color: #999;
-    border-radius: 4px;
-
-    line-height: 14px;
 }
 
 .linjun-tag-status-resolved{
     background-color: #f89406;
-    border-radius: 4px;
-
-    line-height: 14px;
 }

@@ -8,12 +8,12 @@
 <!DOCTYPE html>
 <html>
     <my-taglib:header />
-    <link rel="stylesheet" href="css/simLayout.css">
+    <link rel="stylesheet" href="css/libs/jquery-ui.css">
     <link rel="stylesheet" href="css/linjun-ui-button.css">
     <link rel="stylesheet" href="css/linjun-ui-icon.css">
     <link rel="stylesheet" href="css/linjun-ui-block.css">
     <link rel="stylesheet" href="css/linjun-ui-tag.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/simLayout.css">
     <body>
         <div class="container" id="pageContent"></div>
 
@@ -22,10 +22,10 @@
                 <div class = "top-row">
                     <div class = "top-row-left">
                         <div class = "foo-actions linjun-btn-group">
-                            <button class="linjun-btn btn-green">
+                            <button class="linjun-btn btn-white">
                                 <i class="icon-download"></i>
                             </button>
-                            <button class="linjun-btn btn-green">
+                            <button class="linjun-btn btn-white">
                                 <i class="icon-down-arrow"></i>
                             </button>
                             <ul class="linjun-dropdown-menu">
@@ -37,9 +37,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <button class="linjun-btn btn-green">
-                            <i class="icon-down-arrow"></i>
-                        </button>
                     </div>
                     <div class = "top-row-right">
                         <div class = "foo-actions linjun-btn-group">
@@ -75,6 +72,10 @@
                                 <i class="icon-close"></i>
                             </button>
                         </div>
+                        <div class="search-input">
+                            <i class="icon-search"></i>
+                            <input type="text" placeholder="Keyword search" />
+                        </div>
                         <div class="search-filter">
                             <button class="linjun-btn btn-blue" title="">search</button>
                         </div>
@@ -106,8 +107,6 @@
         </div> <!-- end of div view-content-left -->
 
         <div id="view-content-center">
-            <div class="left-placeholder">
-            </div>
             <div class="inner-container">
                 <div class="result-header"></div>
                 <div class="result-body">
@@ -291,42 +290,6 @@
                                     </div>
                                 </div> <!-- end of tab view wrapper -->
                                 <div class="document-threads">
-                                    <div class="document-thread">
-                                        <div class="replier">
-                                            <img src="images/meow.jpg" />
-                                        </div>
-                                        <div class="reply-content-wrapper">
-                                            <div class="reply-content-title">
-                                                <span class="name">linjun</span>
-                                                commented on this issue 9d ago | Updated
-                                            </div>
-                                            <div class="reply-content-body">
-                                                Meets all criteria
-
-                                                A2TAF2TSFLZTR7
-                                            </div>
-                                            <div class="reply-content-toolbar">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="document-thread">
-                                        <div class="replier">
-                                            <img src="images/meow.jpg" />
-                                        </div>
-                                        <div class="reply-content-wrapper">
-                                            <div class="reply-content-title">
-                                                <span class="name">linjun</span>
-                                                commented on this issue 9d ago | Updated
-                                            </div>
-                                            <div class="reply-content-body">
-                                                Meets all criteria
-
-                                                A2TAF2TSFLZTR7
-                                            </div>
-                                            <div class="reply-content-toolbar">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="document-thread">
                                         <div class="replier">
                                             <img src="images/meow.jpg" />
