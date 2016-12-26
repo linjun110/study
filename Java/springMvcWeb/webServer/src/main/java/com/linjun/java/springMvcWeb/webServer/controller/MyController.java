@@ -40,6 +40,12 @@ public class MyController {
         return "adminSap";
     }
 
+    @RequestMapping("/adminReact")
+    private String reactPage(){
+        logger.info("access adminReact page");
+        return "adminReact";
+    }
+
     @RequestMapping("/css3animate")
     private String css3animatePage(){
         logger.info("access css3animate page");

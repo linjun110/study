@@ -1,0 +1,12 @@
+install tool:
+    sudo pip install -U nltk
+    pip install pattern
+
+
+Chinese word split:
+    pip3 install jieba
+    pip install jieba
+
+Reference:
+    https://pypi.python.org/pypi/jieba/
+    http://www.tuicool.com/articles/VvayMvm

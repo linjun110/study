@@ -1,0 +1,11 @@
+How to play:
+scrapy crawl dmoz -o items.json
+
+install scrapy
+pip install scrapy
+sudo pip install BeautifulSoup4
+
+Reference:
+http://scrapy-chs.readthedocs.io/zh_CN/latest/intro/tutorial.html
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html
+http://www.runoob.com/python/python-tutorial.html

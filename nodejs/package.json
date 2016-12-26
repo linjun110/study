@@ -1,0 +1,23 @@
+{
+  "name": "demo",
+  "version": "0.0.1",
+  "description": "js demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "*",
+    "body": "*",
+    "mongoose": "~3.8.9"
+  },
+  "keywords": [
+    "cmd",
+    "amd",
+    "sdk",
+    "mvc",
+    "agile"
+  ],
+  "author": "linj",
+  "license": "MIT"
+}

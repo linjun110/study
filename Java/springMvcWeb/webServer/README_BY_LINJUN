@@ -1,4 +1,6 @@
-Url: https://localhost:8081/springMvcWeb/
+How to play:
+1. ./deploy.sh
+2. access Url: https://localhost:8081/springMvcWeb/
 
 Precondition:
 1. install tomcat

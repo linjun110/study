@@ -1,49 +1,27 @@
 package com.linjun.language.java;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Date;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.linjun.language.java.model.Staff;
+import com.linjun.language.java.model.Template;
 
-/**
- * Created by linjun on 16/4/28.
- */
+import java.io.IOException;
+
 public class AnyThing {
-    public static void main( String[] args ){
-        A a = new AnyThing.A();
-        B b = new AnyThing.B();
-        func(b);
-    }
+    public static void main( String[] args ) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        // Convert JSON string to Object
+        String jsonInString = "{\"name\":\"mkyong\",\"salary\":7500,\"skills\":[\"java\",\"python\"]}";
+        Staff staff1 = mapper.readValue(jsonInString, Staff.class);
+        System.out.println(staff1);
 
-    public static void func(Object o){
-        try{
-            Class clazz = o.getClass();
-            Method m = clazz.getDeclaredMethod("sayHi");
-            if(!AnyThing.A.class.isInstance(o)){
-                System.out.println("not a");
-                return;
-            }
-            m.invoke(o);
-        }catch(NoSuchMethodException e1){
-            System.out.println("no such method");
-        }catch(IllegalAccessException e2){
-            System.out.println("illegal access");
-        }catch(IllegalArgumentException e3){
-            System.out.println("illegal argument");
-        }catch(InvocationTargetException e4){
-            System.out.println("illegal target");
-        }
-    }
+        System.out.println(mapper.writeValueAsString(staff1));
+        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(staff1));
 
-    static class A{
-        public void sayHi(){
-            System.out.println("hi I am a");
-        }
-
-    }
-    static class B{
-        public void sayHi(){
-            System.out.println("hi I am b");
-        }
-
+        ObjectMapper mapper1 = new ObjectMapper();
+        String jsonInString2 = "{\"id\":\"mkyong\",\"configRuleGroups\":[{\"name\":\"crgName\"}]}";
+        Template template = mapper1.readValue(jsonInString2, Template.class);
+        System.out.println(template);
+        System.out.println(mapper.writeValueAsString(template));
+        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(template));
     }
 }

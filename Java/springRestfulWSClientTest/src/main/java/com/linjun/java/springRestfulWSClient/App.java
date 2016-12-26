@@ -19,7 +19,7 @@ public class App implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        Quote quote = restTemplate.getForObject("http://localhost:8080/greeting", Quote.class);
+        Quote quote = restTemplate.getForObject("http://localhost:8080/restApi", Quote.class);
         log.info(quote.toString());
     }
 }

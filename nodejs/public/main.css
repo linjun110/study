@@ -1,0 +1,6 @@
+.booksCompositeView input[type='text'], .foodsCompositeView input[type='text'], .userView input[type='text']{
+	margin-right: 1em;
+}
+.cat span{
+	border: 1px solid #b9b9b9;
+}

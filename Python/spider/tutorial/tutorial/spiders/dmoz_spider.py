@@ -1,0 +1,25 @@
+import scrapy
+
+from tutorial.items import DmozItem
+
+class DmozSpider(scrapy.spiders.Spider):
+    name = "dmoz"
+    allowed_domains = ["dmoz.org"]
+    start_urls = [
+        "http://www.dmoz.org/Computers/Programming/Languages/Python/Books/",
+        "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"
+    ]
+
+    items = []
+
+    def parse(self, response):
+        for sel in response.xpath('//ul/li'):
+            item = DmozItem()
+            # use css
+            #sel.css('a > div.site-title::text').extract_first().strip()
+            item['title'] = sel.xpath('a/text()').extract()
+            item['link'] = sel.xpath('a/@href').extract()
+            item['desc'] = sel.xpath('text()').extract()
+            yield item
+            # items.append(item)
+            # return items

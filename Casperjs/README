@@ -1,0 +1,5 @@
+
+Install:
+    1. install phantomjs @ http://phantomjs.org/download.html
+    2. set PATH to env or move phantomjs executable to /usr/local/bin
+    3. install casper via "brew install casperjs"
