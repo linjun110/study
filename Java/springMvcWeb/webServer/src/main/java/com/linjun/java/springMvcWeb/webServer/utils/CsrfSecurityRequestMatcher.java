@@ -14,8 +14,12 @@ public class CsrfSecurityRequestMatcher implements RequestMatcher {
     private Pattern allowedMethods = Pattern
             .compile("^(GET|HEAD|TRACE|OPTIONS)$");
 
+    /**
+     * To tell if need to do csrf validation
+     * @param request
+     * @return
+     */
     public boolean matches(HttpServletRequest request) {
-
         if (execludeUrls != null && execludeUrls.size() > 0) {
             String servletPath = request.getServletPath();
             for (String url : execludeUrls) {
@@ -29,6 +33,7 @@ public class CsrfSecurityRequestMatcher implements RequestMatcher {
 
     /**
      * 需要排除的url列表
+     * 由spring DI (dependency injection)
      */
     private List<String> execludeUrls;
 

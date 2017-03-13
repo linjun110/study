@@ -5,8 +5,9 @@ import org.apache.log4j.LogManager;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import org.apache.log4j.LogManager;
+
 import org.apache.log4j.Logger;
+import org.springframework.security.access.annotation.Secured;
 
 /**
  * Created by linjun on 16/4/16.
@@ -16,7 +17,7 @@ public class RabbitmqHelper {
     private final static String EXCHANGE_NAME = "helloExchange";
 
     static{
-        recieve();
+        receive();
     }
 
     public static void send(String msg) throws IOException {
@@ -37,7 +38,7 @@ public class RabbitmqHelper {
         }
     }
 
-    public static void recieve(){
+    public static void receive(){
         try {
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost("localhost");

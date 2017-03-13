@@ -5,12 +5,13 @@
            version="3.1">
   <display-name>Archetype Created Web Application</display-name>
 
-  <!-- spring MVC的核心就是DispatcherServlet，使用springMVC的第一步就是将下面的servlet放入web.xml
+  <!-- [SCOPE: Spring MVC]: spring MVC的核心就是DispatcherServlet，使用springMVC的第一步就是将下面的servlet放入web.xml
         servlet-name属性非常重要，默认情况下，DispatchServlet会加载这个名字-servlet.xml的文件，如下，就会加载
-        dispather-servlet.xml，也是在WEN-INF目录下。
+        dispatcher-servlet.xml，也是在WEB-INF目录下。
    -->
   <servlet>
     <servlet-name>dispatcher</servlet-name>
+    <!-- TIP: 这个Servlet由springframework 提供的, 所以说 spring mvc 是基于 servlet 的框架 -->
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -46,11 +47,16 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
       /WEB-INF/spring-security.xml,
-      /WEB-INF/spring-database.xml
+      /WEB-INF/spring-database.xml,
+      <!-- need to add local-beans for spring framework awareness -->
+      /WEB-INF/local-beans.xml
     </param-value>
   </context-param>
 
   <!-- Spring Security -->
+  <!-- 为什么 DelegatingFilterProxy 是由 spring web 提供 而不是 spring Security ?-->
+  <!-- A: 这是因为 springframework for web 留下了这样一个Hook,以供使用者自行定义如何Filter, spring security正是利用了这一
+  Hook,而实现了一个 springSecurityFilterChain的机制,来执行security相关的处理-->
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -60,5 +66,11 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+
+  <session-config>
+    <!-- 10 hours -->
+    <session-timeout>600</session-timeout>
+  </session-config>
 
 </web-app>

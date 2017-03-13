@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <bean id="localBeanFoo" class="com.linjun.java.springMvcWeb.webServer.localBeans.LocalBeanFoo" />
+
+    <!-- define aspect, refer to: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html -->
+    <bean id="fooAspect" class="com.linjun.java.springMvcWeb.webServer.aspects.FooAspect" />
+
+    <!-- XML way to configure aspect
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="fooAspect">
+            <aop:pointcut id="fooPointcut" expression="execution(* com.linjun.java.springMvcWeb.webServer.controller.MyController.*())" />
+            <aop:before pointcut-ref="fooPointcut" method="before" />
+        </aop:aspect>
+    </aop:config>
+    -->
+</beans>

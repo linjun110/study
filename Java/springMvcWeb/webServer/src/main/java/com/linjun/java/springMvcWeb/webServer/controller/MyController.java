@@ -1,7 +1,10 @@
 package com.linjun.java.springMvcWeb.webServer.controller;
 
+import com.linjun.java.springMvcWeb.webServer.annotations.AspectHandle;
+import com.linjun.java.springMvcWeb.webServer.localBeans.LocalBeanFoo;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.ModelMap;
@@ -15,6 +18,9 @@ import javax.servlet.http.Cookie;
 @Controller
 public class MyController {
     private static Logger logger = LogManager.getLogger(MyController.class);
+
+    @Autowired
+    private LocalBeanFoo localBeanFoo;
 
     @RequestMapping("/")
     private String home(){
@@ -34,8 +40,9 @@ public class MyController {
         return "index";
     }
 
+    @AspectHandle
     @RequestMapping("/adminSap")
-    private String sapPage(){
+    public String sapPage(){
         logger.info("access adminSap page");
         return "adminSap";
     }
@@ -46,8 +53,9 @@ public class MyController {
         return "adminReact";
     }
 
+    @AspectHandle
     @RequestMapping("/css3animate")
-    private String css3animatePage(){
+    public String css3animatePage(){
         logger.info("access css3animate page");
         return "css3animate";
     }
@@ -58,14 +66,16 @@ public class MyController {
         return "simLayout";
     }
 
+    @AspectHandle
     @RequestMapping("/3dbutton")
-    private String threedbuttonPage(){
+    public String threedbuttonPage(){
         logger.info("access 3dbutton page");
         return "3dbutton";
     }
 
     @RequestMapping("/d3")
     private String d3Page(){
+        localBeanFoo.say();
         logger.info("access d3 page");
         return "d3";
     }
@@ -81,4 +91,9 @@ public class MyController {
         logger.info("access svg page");
         return "svg";
     }
+
+    public void setLocalBeanFoo(LocalBeanFoo localBeanFoo) {
+        this.localBeanFoo = localBeanFoo;
+    }
+
 }
