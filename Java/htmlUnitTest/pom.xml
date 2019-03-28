@@ -1,12 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.linjun.java.spring</groupId>
-  <artifactId>springTest</artifactId>
-  <packaging>jar</packaging>
+
+  <groupId>com.linjun.java</groupId>
+  <artifactId>htmlUnitTest</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>springTest</name>
+  <packaging>jar</packaging>
+
+  <name>htmlUnitTest</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,43 +28,27 @@
         <version>4.2.5.RELEASE</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aop</artifactId>
-      <version>5.1.2.RELEASE</version>
+      <groupId>net.sourceforge.htmlunit</groupId>
+      <artifactId>htmlunit</artifactId>
+      <version>2.26</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.3</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aspects</artifactId>
-      <version>5.1.2.RELEASE</version>
-    </dependency>
-
-    <dependency>
-        <groupId>org.codehaus.jackson</groupId>
-        <artifactId>jackson-mapper-asl</artifactId>
-        <version>1.9.13</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.7.3</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.7.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.antlr</groupId>
-      <artifactId>antlr4-runtime</artifactId>
-      <version>4.6</version>
-    </dependency>
 
   </dependencies>
+
   <build>
     <plugins>
       <!-- add this plugin to specify main class for package executable jar-->
@@ -74,7 +65,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.linjun.java.spring.App</mainClass>
+                  <mainClass>com.linjun.java.htmlUnitTest.App</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -87,7 +78,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.linjun.java.spring.App</mainClass>
+              <mainClass>com.linjun.java.htmlUnitTest.App</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

@@ -1,4 +1,8 @@
+本项目主要是用来尝试如果利用Spring实现自己的Coral Service, 项目入口为App.java
+
+参考:
 http://projects.spring.io/spring-framework/
 http://www.antlr.org/
 
+如何清理及编译:
 mvn clean install

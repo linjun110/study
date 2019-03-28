@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <bean id= "dispatcher" class="com.linjun.java.spring.handler.Dispatcher">
         <constructor-arg ref="servicesManager" />
@@ -13,4 +15,8 @@
     <bean id= "servicesManager" factory-bean="servicesManagerFactory"
           factory-method="acquire">
     </bean>
+
+    <bean id="aspectSrc" class="com.linjun.java.spring.Aspect.TestAspect" />
+
+    <bean id="aspectTarget" class="com.linjun.java.spring.toAspect.TestAspectTarget" />
 </beans>
